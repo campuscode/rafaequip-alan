@@ -2,7 +2,6 @@ class EquipmentController < ApplicationController
   before_action :find_equipment, only: [:show, :edit, :update]
 
   def show
-    
   end
 
   def new
@@ -28,16 +27,18 @@ class EquipmentController < ApplicationController
     else
       flash[:notice] = 'Não foi possível atualizar o equipamento!'
       render :edit
-    end 
+    end
   end
 
   private
 
   def equipment_params
-    params.require(:equipment).permit(:customer_code, :description, :category, :price, :serial_number, :status)
+    params.require(:equipment).permit(:customer_code, :description, :supplier,
+                                      :category, :price, :serial_number,
+                                      :status)
   end
 
   def find_equipment
     @equipment = Equipment.find(params[:id])
-  end  
+  end
 end

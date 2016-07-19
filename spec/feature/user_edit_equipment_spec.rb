@@ -7,13 +7,13 @@ feature 'User edit equipment' do
     visit edit_equipment_path(equip)
 
     equip_edited = Equipment.create(customer_code: 'BETONE001',
-                                     description:   'Betoneira 400 litros Elétrica',
-                                     supplier:      'Betoneira',
-                                     category:      'Betoneira Elétrica',
-                                     price:         1500.00, 
-                                     serial_number: '555666',
-                                     status:        'Alugado'  
-                                     )
+                                    description:
+                                    'Betoneira 400 litros Elétrica',
+                                    supplier:      'Betoneira',
+                                    category:      'Betoneira Elétrica',
+                                    price:         1500.00,
+                                    serial_number: '555666',
+                                    status:        'Alugado')
 
     fill_in 'Código do cliente',  with: equip_edited.customer_code
     fill_in 'Descrição',          with: equip_edited.description
@@ -36,7 +36,7 @@ feature 'User edit equipment' do
 
   scenario 'with valid data' do
     equip = create(:equipment)
-    
+
     visit edit_equipment_path(equip)
 
     fill_in 'Descrição',       with: ''

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User create equipment" do
+feature 'User create equipment' do
   scenario 'sucessfulley' do
     equip = build(:equipment)
 
