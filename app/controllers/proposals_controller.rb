@@ -1,5 +1,4 @@
 class ProposalsController < ApplicationController
-
   def index
     @proposals = Proposal.all
   end
@@ -9,7 +8,9 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(params.require(:proposal).permit(:name, :mail, :phone, :description))
+    @proposal = Proposal.new(params.require(:proposal).permit(:name, :mail,
+                                                              :phone,
+                                                              :description))
     if @proposal.save
       flash[:notice] = 'Solicitação enviada com sucesso!'
       redirect_to @proposal
@@ -22,5 +23,4 @@ class ProposalsController < ApplicationController
   def show
     @proposal = Proposal.find(params[:id])
   end
-
 end

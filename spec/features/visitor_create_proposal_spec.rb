@@ -19,12 +19,12 @@ feature 'Visitor visit home and' do
   end
 
   scenario 'and should fill all fields' do
-      visit root_path
+    visit root_path
 
-      click_on 'Orçamento'
+    click_on 'Orçamento'
 
-      click_on 'Solicitar Orçamento'
+    click_on 'Solicitar Orçamento'
 
-      expect(page).to have_content('Não foi possivel fazer a solicitação')
+    expect(page).to have_content('Não foi possivel fazer a solicitação')
   end
 end

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'user view proposals' do
   scenario 'successfully' do
-    
     proposal1 = create(:proposal)
     proposal2 = create(:proposal, name: 'Alan', mail: 'cc@cc.com')
 
@@ -16,6 +15,5 @@ feature 'user view proposals' do
     expect(page).to have_content(proposal2.mail)
     expect(page).to have_content(proposal2.phone)
     expect(page).to have_content(proposal2.description)
-
   end
 end

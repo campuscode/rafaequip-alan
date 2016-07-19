@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'user_create_contract' do
   scenario 'successfully' do
-
     visit new_contract_path
 
     fill_in 'Número do contrato', with: '123'
@@ -19,7 +18,7 @@ feature 'user_create_contract' do
 
     click_on 'Emitir contrato'
 
-    expect(page).to have_css('h1',text: '123')
+    expect(page).to have_css('h1', text: '123')
     expect(page).to have_content('123456')
     expect(page).to have_content('Campus Code')
     expect(page).to have_content('Alameda Santos, 1293')
@@ -30,7 +29,6 @@ feature 'user_create_contract' do
     expect(page).to have_content('20/07/2016')
     expect(page).to have_content('500')
     expect(page).to have_content('10')
-
   end
 
   scenario 'with invalid data' do
