@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719001742) do
+ActiveRecord::Schema.define(version: 20160719214109) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_number"
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20160719001742) do
     t.string   "shipping_address"
     t.string   "shipping_contact"
     t.string   "rental_period"
-    t.string   "rented_equipments"
     t.float    "price"
     t.float    "discount"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.date     "date_begin"
     t.date     "date_end"
+    t.string   "rented_equipment"
   end
 
   create_table "equipment", force: :cascade do |t|
