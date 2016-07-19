@@ -1,11 +1,25 @@
-<h1><%= @contract.contract_number %></h1>
-<%= @contract.order_number %>
-<%= @contract.customer %>
-<%= @contract.shipping_address %>
-<%= @contract.shipping_contact %>
-<%= @contract.rental_period %>
-<%= @contract.rented_equipment %>
-<%= @contract.date_begin.strftime('%d/%m/%Y') %>
-<%= @contract.date_end.strftime('%d/%m/%Y') %>
-<%= @contract.price %>
-<%= @contract.discount %>
+<section>
+  <h1><%= @contract.contract_number %></h1>
+  <dl class="dl-horizontal">
+    <dt>Numero do Pedido</dt>
+    <dd><%= @contract.order_number %></dd>
+    <dt>Nome do Cliente</dt>
+    <dd><%= @contract.customer %></dd>
+    <dt>Endereço de Entrega</dt>
+    <dd><%= @contract.shipping_address %></dd>
+    <dt>Contato</dt>
+    <dd><%= @contract.shipping_contact %></dd>
+    <dt>Periodo de Locação</dt>
+    <dd><%= @contract.rental_period %></dd>
+    <dt>Equipamentos Alugados</dt>
+    <dd><%= @contract.rented_equipment %></dd>
+    <dt>Inicio da Locação</dt>
+    <dd><%= @contract.date_begin.strftime('%d/%m/%Y') %></dd>
+    <dt>Fim da locação</dt>
+    <dd><%= @contract.date_end.strftime('%d/%m/%Y') %></dd>
+    <dt>Preço</dt>
+    <dd><%= @contract.price %></dd>
+    <dt>Desconto</dt>
+    <dd><%= @contract.discount %></dd>
+  </dl>
+</section>

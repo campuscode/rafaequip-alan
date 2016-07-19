@@ -4,7 +4,7 @@ FactoryGirl.define do
     description 'Martelete Rotativo Hr2470 Makita 220v'
     supplier 'Makita'
     category 'Furadeira Martelete'
-    price 585_80
+    price 585.80
     serial_number '123456'
     status 'Disponível'
   end
