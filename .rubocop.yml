@@ -6,12 +6,13 @@ Rails:
   Enabled: true
 AllCops:
   Include:
+  Exclude:
     - '**/Rakefile'
     - '**/config.ru'
-  Exclude:
     - 'bin/**/*'
     - 'vendor/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
     - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
