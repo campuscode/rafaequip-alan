@@ -21,6 +21,6 @@ end
 private
 
 def contract_params
-  params.require(:contract).permit(:contract_number, :order_number, :customer,
-  :shipping_address, :shipping_contact, :rental_period, :rented_equipments, :date_begin, :date_end, :price, :discount)
+  params.require(:contract).permit(:contract_number, :order_number, :customer,:shipping_address,
+  :shipping_contact, :rental_period, :rented_equipments, :date_begin, :date_end, :price, :discount)
 end

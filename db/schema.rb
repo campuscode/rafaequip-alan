@@ -28,4 +28,24 @@ ActiveRecord::Schema.define(version: 20160719001742) do
     t.date     "date_end"
   end
 
+  create_table "equipment", force: :cascade do |t|
+    t.string   "customer_code"
+    t.string   "description"
+    t.string   "category"
+    t.float    "price"
+    t.string   "serial_number"
+    t.string   "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.string   "phone"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 end
