@@ -1,0 +1,10 @@
+<%= notice %>
+<section>
+  <%= simple_form_for @proposal do |f| %>
+    <%= f.input :name, label: 'Nome' %>
+    <%= f.input :mail, label: 'Email' %>
+    <%= f.input :phone, label: 'Telefone' %>
+    <%= f.input :description, label: 'Descrição' %>
+    <%= f.button :submit, 'Solicitar Orçamento' %>
+  <% end %>
+</section>
