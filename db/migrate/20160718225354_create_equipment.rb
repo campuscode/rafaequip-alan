@@ -3,6 +3,7 @@ class CreateEquipment < ActiveRecord::Migration[5.0]
     create_table :equipment do |t|
       t.string :customer_code
       t.string :description
+      t.string :supplier
       t.string :category
       t.float :price
       t.string :serial_number
