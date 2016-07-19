@@ -9,6 +9,45 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "RafaEquip", root_path, class: "navbar-brand" %>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to "Orçamento", new_proposal_path %>
+              </li>
+              <li>
+                <%= link_to "Novo Contrato", new_contract_path %>
+              </li>
+              <li>
+                <%= link_to "Visualizar Orçamentos", proposals_path %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      
+      <% if notice %>
+        <div class="alert alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p><%= notice %></p>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
