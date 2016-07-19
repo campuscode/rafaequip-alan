@@ -1,0 +1,13 @@
+<section>
+  <h1>Lista de Orçamentos</h1>
+  <% @proposals.each do |proposal| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= proposal.name %><br>
+        <%= proposal.mail %><br>
+        <%= proposal.phone %><br>
+        <%= proposal.description %><br>
+      </div>
+    </div>
+  <% end %>
+</section>
