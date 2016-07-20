@@ -2,10 +2,55 @@
   <%= @equipment.customer_code %>
 </h1>
 
-<%= @equipment.customer_code %>
-<%= @equipment.description %>
-<%= @equipment.supplier %>
-<%= @equipment.category %>
-<%= @equipment.price %>
-<%= @equipment.serial_number %>
-<%= @equipment.status %>
+<section>
+  <dl class="dl-horizontal">
+    <dt>
+      Código do cliente
+    </dt> 
+    <dd>
+      <%= @equipment.customer_code %>
+    </dd>
+    
+    <dt>
+      Descrição
+    </dt> 
+    <dd>
+      <%= @equipment.description %>
+    </dd>
+    
+    <dt>
+      Categoria
+    </dt> 
+    <dd>
+      <%= @equipment.category %>
+    </dd>
+    
+    <dt>
+      Fornecedor
+    </dt> 
+    <dd>
+      <%= @equipment.supplier %>
+    </dd>
+
+    <dt>
+      Preço
+    </dt> 
+    <dd>
+      <%= @equipment.price %>
+    </dd>
+    
+    <dt>
+      Número de série
+    </dt> 
+    <dd>
+      <%= @equipment.serial_number %>
+    </dd>
+    
+    <dt>
+      Status
+    </dt> 
+    <dd>
+      <%= @equipment.status %>
+    </dd>
+  </dl>
+</section>

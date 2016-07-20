@@ -7,4 +7,13 @@ before_script:
 script:
   - bundle exec rubocop
   - bundle exec rspec spec
-
+notifications:
+  email:
+    recipients:
+      - m2c.andre@gmail.com
+      - patrickwreis@gmail.com
+      - marciocavarzeri@gmail.com
+      - lucenaaguiar@gmail.com
+      - lguilherme.santos@live.com
+    on_success: always
+    on_failure: always
