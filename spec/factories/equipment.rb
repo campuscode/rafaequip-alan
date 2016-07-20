@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :equipment do
-    customer_code 'MyString'
-    description 'MyString'
-    category 'MyString'
+    customer_code '98765'
+    description 'Furadeira bosh'
+    category 'fudareiras'
     price 1.5
-    serial_number 'MyString'
-    status 'MyString'
+    serial_number '12345'
+    status 'disponivel'
   end
 end
