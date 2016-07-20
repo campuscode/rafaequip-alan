@@ -10,7 +10,6 @@ feature 'user_create_contract' do
     fill_in 'Endereço de entrega', with: 'Alameda Santos, 1293'
     fill_in 'Contato de entrega', with: 'Alan'
     fill_in 'Prazo de locação', with: '3 dias'
-    fill_in 'Equipamentos alugados', with: 'Furadeira'
     fill_in 'Data de início', with: '18/07/2016'
     fill_in 'Data de término', with: '20/07/2016'
     fill_in 'Valor total', with: '500'
@@ -24,7 +23,6 @@ feature 'user_create_contract' do
     expect(page).to have_content('Alameda Santos, 1293')
     expect(page).to have_content('Alan')
     expect(page).to have_content('3 dias')
-    expect(page).to have_content('Furadeira')
     expect(page).to have_content('18/07/2016')
     expect(page).to have_content('20/07/2016')
     expect(page).to have_content('500')
