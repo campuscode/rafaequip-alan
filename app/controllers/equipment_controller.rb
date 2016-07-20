@@ -1,6 +1,11 @@
 class EquipmentController < ApplicationController
   before_action :find_equipment, only: [:show, :edit, :update]
 
+  def index
+    @equipment = Equipment.all
+    flash.now[:notice] = 'Nenhum equipamento cadastrado' if @equipment.empty?
+  end
+
   def show
   end
 
