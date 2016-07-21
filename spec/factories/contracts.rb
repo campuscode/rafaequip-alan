@@ -6,7 +6,6 @@ FactoryGirl.define do
     shipping_address 'MyString'
     shipping_contact 'MyString'
     rental_period 'MyString'
-    rented_equipments 'MyString'
     date_begin '2016-07-18 19:57:55'
     date_end '2016-07-18 19:57:55'
     price 1.5

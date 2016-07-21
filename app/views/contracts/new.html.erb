@@ -5,7 +5,8 @@
     <%= f.input :order_number, label: 'Número do pedido' %>
     <%= f.input :customer, label: 'Cliente' %>
     <%= f.input :shipping_address, label: 'Endereço de entrega' %>
-    <%= f.input :rental_period, label: 'Prazo de locação' %>
+    <%= f.input :rental_period_id, label: 'Prazo de locação',
+                                   collection: @periods %>
     <%= f.input :shipping_contact, label: 'Contato de entrega' %>
     <%= f.input :rented_equipment, label: 'Equipamentos alugados' %>
     <%= f.input :date_begin, label: 'Data de início', html5: true %>
