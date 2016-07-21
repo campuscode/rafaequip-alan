@@ -3,11 +3,11 @@ class Contract < ApplicationRecord
             :shipping_contact, :date_begin, :date_end,
             :price, :discount, presence: true
 
+  belongs_to :rental_period
   has_many :rented_equipment
   has_many :equipment, through: :rented_equipment
 
   def calc_price
-    binding.pry
     total = 0
     equipment.each do |equip|
       price = Price.find_by(equipment: equip, rental_period: rental_period)

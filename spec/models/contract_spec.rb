@@ -16,20 +16,20 @@ describe Contract do
     end
 
     it 'when 2 equipment' do
-      equipment = create(:equipment)
-      equipment2 = create(:equipment)
+      equip_list = create_list(:equipment, 2)
       rental_period = create(:rental_period, description: '3 dias')
+
       create(:price,
-             equipment: equipment,
+             equipment: equip_list[0],
              rental_period: rental_period,
              amount: 150.0)
       create(:price,
-             equipment: equipment2,
+             equipment: equip_list[1],
              rental_period: rental_period,
              amount: 150.0)
 
       contract = create(:contract,
-                        equipment: [equipment, equipment2],
+                        equipment: equip_list,
                         rental_period: rental_period)
       contract.calc_price
       expect(contract.price).to eq(300.0)
@@ -38,11 +38,11 @@ describe Contract do
 
   context 'when have equipment' do
     it 'Contracts with equipment' do
-      equipment1 = create(:equipment)
-      equipment2 = create(:equipment)
-      create(:contract, equipment: [equipment1, equipment2])
+      equip_list = create_list(:equipment, 2)
+      rental_period = create(:rental_period, description: '5 dias')
+      create(:contract, equipment: equip_list, rental_period: rental_period)
 
-      expect(Contract.last.equipment).to match_array([equipment1, equipment2])
+      expect(Contract.last.equipment).to match_array(equip_list)
     end
   end
 end
