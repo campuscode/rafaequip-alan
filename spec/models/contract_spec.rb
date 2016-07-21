@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Contract, :type => :model do
+RSpec.describe Contract do
   it 'Contracts with equipment' do
     equipment1 = create(:equipment)
     equipment2 = create(:equipment)
