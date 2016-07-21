@@ -1,0 +1,21 @@
+<section>
+  <h1>Tabela de Preços</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Equipamento</th>
+        <th>Prazo</th>
+        <th>Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @prices.each do |price| %>
+          <td><%= price.equipment.description %></td>
+          <td><%= price.rental_period.description %></td>
+          <td><%= price.amount %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</section>
