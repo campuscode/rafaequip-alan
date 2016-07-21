@@ -12,7 +12,9 @@
     <dt>Periodo de Locação</dt>
     <dd><%= @contract.rental_period %></dd>
     <dt>Equipamentos Alugados</dt>
-    <dd><%= @contract.rented_equipment %></dd>
+    <% @contract.equipment.each do |equipment| %>
+      <dd><%= equipment.description %></dd>
+    <% end %>
     <dt>Inicio da Locação</dt>
     <dd><%= @contract.date_begin.strftime('%d/%m/%Y') %></dd>
     <dt>Fim da locação</dt>
