@@ -4,6 +4,7 @@ feature 'user_create_contract' do
   scenario 'successfully' do
     equipment  = create(:equipment)
     equipment1 = create(:equipment, description: 'Furadeira')
+    period = create(:rental_period, description: '3 dias')
 
     visit new_contract_path
 
@@ -12,11 +13,9 @@ feature 'user_create_contract' do
     fill_in 'Cliente', with: 'Campus Code'
     fill_in 'Endereço de entrega', with: 'Alameda Santos, 1293'
     fill_in 'Contato de entrega', with: 'Alan'
-
     select equipment.description, from: 'Equipment'
     select equipment1.description, from: 'Equipment'
-
-    fill_in 'Prazo de locação', with: '3 dias'
+    select  period.description, from: 'Prazo de locação'
     fill_in 'Data de início', with: '18/07/2016'
     fill_in 'Data de término', with: '20/07/2016'
     fill_in 'Valor total', with: '500'

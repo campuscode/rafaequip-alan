@@ -5,7 +5,8 @@
     <%= f.input :order_number, label: 'Número do pedido' %>
     <%= f.input :customer, label: 'Cliente' %>
     <%= f.input :shipping_address, label: 'Endereço de entrega' %>
-    <%= f.input :rental_period, label: 'Prazo de locação' %>
+    <%= f.input :rental_period_id, label: 'Prazo de locação',
+                                   collection: @periods, label_method: :description %>
     <%= f.input :shipping_contact, label: 'Contato de entrega' %>
 
     <%= f.association :equipment, label_method: :description, value_method: :id %>

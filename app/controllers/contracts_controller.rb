@@ -5,6 +5,7 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
+    @periods = RentalPeriod.all
   end
 
   def create
@@ -23,7 +24,7 @@ private
 def contract_params
   params.require(:contract).permit(:contract_number, :order_number, :customer,
                                    :shipping_address, :shipping_contact,
-                                   :rental_period,
+                                   :rental_period_id,
                                    :date_begin, :date_end, :price, :discount,
                                    equipment_ids: [])
 end
