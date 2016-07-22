@@ -16,14 +16,22 @@ class ContractsController < ApplicationController
       render :new
     end
   end
-end
 
-private
+  def create_delivery_receipt
+    # @contract = Contract.find(params[:id])
+    # @contract.delivery_receipt.create()
 
-def contract_params
-  params.require(:contract).permit(:contract_number, :order_number, :customer,
-                                   :shipping_address, :shipping_contact,
-                                   :rental_period,
-                                   :date_begin, :date_end, :price, :discount,
-                                   equipment_ids: [])
+    # redirect_to delivery_receipt_contract_path(@contract.delivery_receipt)
+  end
+
+  private
+
+  def contract_params
+    params.require(:contract).permit(:contract_number, :order_number, :customer,
+                                     :shipping_address, :shipping_contact,
+                                     :rental_period,
+                                     :date_begin, :date_end, :price, :discount,
+                                     equipment_ids: [])
+  end
+
 end
