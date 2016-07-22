@@ -25,7 +25,7 @@
     <dd><%= @contract.discount %></dd>
   </dl>
   <div class="">
-    <%= link_to "Recibo de devolução", new_devolution_receipt_path,
+    <%= link_to "Recibo de devolução", new_contract_devolution_receipt_path(@contract),
         class: "btn btn-primary" %>
   </div>
 </section>

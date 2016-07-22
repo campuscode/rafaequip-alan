@@ -1,0 +1,25 @@
+<section>
+  <h1 class="text-center">Recibo de Devolução</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p class="text-center">São Paulo, <%= @devolution_receipt.created_at.strftime('%d de %B de %Y') %></p><br>
+    <p class="text-justify">
+      Eu, <strong><%= @devolution_receipt.employer %></strong>, declaro ter
+      recebido os equipamentos <% @devolution_receipt.contract.equipment.each do |equip| %>
+                                    <%= equip.description %> |
+                                    <%= equip.serial_number %>
+                               <% end %>
+      em devolução referente ao contrato
+      <strong><%= @devolution_receipt.contract.contract_number %></strong> em perfeitas
+      condições da empresa <strong><%= @devolution_receipt.contract.customer %></strong>,
+      inscrita no CNPJ <strong><%= @devolution_receipt.customer_document %></strong> no dia <strong><%= @devolution_receipt.contract.date_end %></strong>.
+    </p><br>
+    <div class="text-center">
+      <p> _____________________________</p>
+      <p> Assinatura do Funcionário </p>
+    </div>
+  </div>
+</div>
+
+</section>
