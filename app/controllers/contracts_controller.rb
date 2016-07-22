@@ -1,4 +1,9 @@
 class ContractsController < ApplicationController
+
+  def index
+    #code
+  end
+
   def show
     @contract = Contract.find(params[:id])
   end
