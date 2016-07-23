@@ -25,14 +25,11 @@
     <dt>Desconto</dt>
     <dd><%= @contract.discount %></dd>
     <dt>Status</dt>
+    <% @contract.status = 'Encerrado' %>
+    <% @contract.save %>
     <dd><%= @contract.status %></dd>
   </div>
   <br>
   <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
-  <% if @contract.status != 'Encerrado' %>
-    <%= link_to 'Encerrar contrato', edit_contract_path , class: "btn btn-danger" %>
-  <% else %>
-    <a href="#" class="btn btn-success disabled">Contrato encerrado</a>
-  <% end %>
   </dl>
 </section>

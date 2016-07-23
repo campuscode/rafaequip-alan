@@ -20,8 +20,11 @@ class ContractsController < ApplicationController
       render :new
     end
   end
-end
 
+  def edit
+    @contract = Contract.find(params[:id])
+  end
+end
 
 private
 
@@ -30,5 +33,5 @@ def contract_params
                                    :shipping_address, :shipping_contact,
                                    :rental_period,
                                    :date_begin, :date_end, :price, :discount,
-                                   equipment_ids: [])
+                                   :status, equipment_ids: [])
 end
