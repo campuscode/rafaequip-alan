@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :proposals, only: [:index, :show, :new, :create]
   resources :equipment, only: [:index, :show, :new, :create, :edit, :update]
   resources :prices, only: [:index]
+
+  resources :delivery_receipt, only: [:show]
 end

@@ -24,7 +24,9 @@
     <dt>Desconto</dt>
     <dd><%= @contract.discount %></dd>
   </dl>
-  <% unless @contract.delivery_receipt %>
-    <%= link_to 'Gerar Recibo de Entrega', delivery_receipt_contract_path(@contract),  method: :post %>
+  <% if @contract.delivery_receipt %>
+    <%= link_to 'Visualizar Recibo de Entrega', delivery_receipt_path(@contract.delivery_receipt), class: 'btn btn-primary btn-sm' %>
+  <% else %>
+    <%= link_to 'Gerar Recibo de Entrega', delivery_receipt_contract_path(@contract),  method: :post, class: 'btn btn-primary btn-sm' %>
   <% end %>
 </section>

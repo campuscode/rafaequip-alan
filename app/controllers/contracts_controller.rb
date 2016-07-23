@@ -18,10 +18,9 @@ class ContractsController < ApplicationController
   end
 
   def create_delivery_receipt
-    # @contract = Contract.find(params[:id])
-    # @contract.delivery_receipt.create()
-
-    # redirect_to delivery_receipt_contract_path(@contract.delivery_receipt)
+    @contract = Contract.find(params[:id])
+    @contract.create_delivery_receipt
+    redirect_to @contract.delivery_receipt
   end
 
   private
@@ -33,5 +32,4 @@ class ContractsController < ApplicationController
                                      :date_begin, :date_end, :price, :discount,
                                      equipment_ids: [])
   end
-
 end
