@@ -23,7 +23,6 @@ class ContractsController < ApplicationController
   end
 end
 
-
 private
 
 def contract_params

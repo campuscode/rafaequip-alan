@@ -1,0 +1,5 @@
+<%= simple_form_for [@contract, @devolution_receipt] do |f| %>
+  <%= f.input :employer, label: 'Funcionário' %>
+  <%= f.input :customer_document, label: 'CNPJ/CPF' %>
+  <%= f.button :submit, 'Gerar Recibo' %>
+<% end %>
