@@ -1,7 +1,7 @@
 class Contract < ApplicationRecord
   validates :contract_number, :customer, :shipping_address, :rental_period_id,
             :shipping_contact, :date_begin, :date_end,
-            :price, :discount, presence: true
+            :price, :discount, :status, presence: true
 
   belongs_to :rental_period
   has_many   :rented_equipment

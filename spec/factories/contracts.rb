@@ -10,5 +10,6 @@ FactoryGirl.define do
     date_end '2016-07-18 19:57:55'
     price 1.5
     discount 1.5
+    status 'MyString'
   end
 end

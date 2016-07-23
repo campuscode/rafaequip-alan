@@ -13,6 +13,7 @@
         <th>Data encerramento</th>
         <th>Preço</th>
         <th>Desconto</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
         <td><%= contract.date_end %></td>
         <td><%= contract.price %></td>
         <td><%= contract.discount %></td>
+        <td><%= contract.status %></td>
         <td><%= link_to 'Detalhes', contract, class: "btn btn-default btn-sm" %></td>
       </tr>
       <% end %>

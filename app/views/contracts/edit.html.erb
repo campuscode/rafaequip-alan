@@ -10,7 +10,7 @@
     <dt>Contato</dt>
     <dd><%= @contract.shipping_contact %></dd>
     <dt>Periodo de Locação</dt>
-    <dd><%= @contract.rental_period.description %></dd>
+    <dd><%= @contract.rental_period %></dd>
     <dt>Equipamentos Alugados</dt>
     <% @contract.equipment.each do |equipment| %>
       <dd><%= equipment.description %></dd>
@@ -25,23 +25,11 @@
     <dt>Desconto</dt>
     <dd><%= @contract.discount %></dd>
     <dt>Status</dt>
+    <% @contract.status = 'Encerrado' %>
+    <% @contract.save %>
     <dd><%= @contract.status %></dd>
   </div>
   <br>
   <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
-  <% if @contract.status != 'Encerrado' %>
-    <%= link_to 'Encerrar contrato', edit_contract_path , class: "btn btn-danger" %>
-  <% else %>
-    <a href="#" class="btn btn-success disabled">Contrato encerrado</a>
-  <% end %>
   </dl>
-  <div>
-    <% if @contract.devolution_receipt %>
-      <%= link_to "Vizualizar Recibo", contract_devolution_receipt_path(@contract),
-        class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Recibo de devolução", new_contract_devolution_receipt_path(@contract),
-        class: "btn btn-primary" %>
-    <% end %>
-  </div>
 </section>

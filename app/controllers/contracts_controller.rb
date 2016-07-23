@@ -1,10 +1,10 @@
 class ContractsController < ApplicationController
+  before_action :set_contract, only: [:show, :edit]
   def index
     @contracts = Contract.all
   end
 
   def show
-    @contract = Contract.find(params[:id])
   end
 
   def new
@@ -21,6 +21,9 @@ class ContractsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+  end
 end
 
 private
@@ -30,5 +33,9 @@ def contract_params
                                    :shipping_address, :shipping_contact,
                                    :rental_period_id,
                                    :date_begin, :date_end, :price, :discount,
-                                   equipment_ids: [])
+                                   :status, equipment_ids: [])
+end
+
+def set_contract
+  @contract = Contract.find(params[:id])
 end
