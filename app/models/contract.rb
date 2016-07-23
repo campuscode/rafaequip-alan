@@ -4,8 +4,9 @@ class Contract < ApplicationRecord
             :price, :discount, presence: true
 
   belongs_to :rental_period
-  has_many :rented_equipment
-  has_many :equipment, through: :rented_equipment
+  has_many   :rented_equipment
+  has_many   :equipment, through: :rented_equipment
+  has_one    :devolution_receipt
 
   def calc_price
     total = 0
