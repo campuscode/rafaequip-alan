@@ -6,7 +6,7 @@ feature 'User edit equipment' do
 
     visit edit_equipment_path(equip)
 
-    equip_edited = Equipment.create(customer_code: 'BETONE001',
+    equip_edited = Equipment.create(equipment_code: 'BETONE001',
                                     description:
                                     'Betoneira 400 litros Elétrica',
                                     supplier:      'Betoneira',
@@ -15,7 +15,7 @@ feature 'User edit equipment' do
                                     serial_number: '555666',
                                     status:        'Alugado')
 
-    fill_in 'Código do cliente',  with: equip_edited.customer_code
+    fill_in 'Código do cliente',  with: equip_edited.equipment_code
     fill_in 'Descrição',          with: equip_edited.description
     fill_in 'Fornecedor',         with: equip_edited.supplier
     fill_in 'Categoria',          with: equip_edited.category
@@ -25,7 +25,7 @@ feature 'User edit equipment' do
 
     click_on 'Atualizar Equipamento'
 
-    expect(page).to have_content equip_edited.customer_code
+    expect(page).to have_content equip_edited.equipment_code
     expect(page).to have_content equip_edited.description
     expect(page).to have_content equip_edited.supplier
     expect(page).to have_content equip_edited.category

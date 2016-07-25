@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :equipment do
-    customer_code 'FRTMKT001'
+    equipment_code 'FRTMKT001'
     description 'Martelete Rotativo Hr2470 Makita 220v'
     supplier 'Makita'
     category 'Furadeira Martelete'
