@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20160725210522) do
     t.datetime "updated_at",       null: false
     t.date     "date_begin"
     t.date     "date_end"
-    t.integer  "rental_period_id"
     t.string   "contract_number"
     t.string   "order_number"
+    t.integer  "rental_period_id"
     t.string   "status"
     t.index ["rental_period_id"], name: "index_contracts_on_rental_period_id"
   end
