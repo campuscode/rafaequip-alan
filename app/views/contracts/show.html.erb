@@ -1,5 +1,7 @@
 <section>
-  <h1><%= @contract.contract_number %></h1>
+  <h1>
+    <%= @contract.contract_number %>
+  </h1>
   <dl class="dl-horizontal">
     <dt>Numero do Pedido</dt>
     <dd><%= @contract.order_number %></dd>
@@ -10,7 +12,7 @@
     <dt>Contato</dt>
     <dd><%= @contract.shipping_contact %></dd>
     <dt>Periodo de Locação</dt>
-    <dd><%= @contract.rental_period %></dd>
+    <dd><%= @contract.rental_period.description %></dd>
     <dt>Equipamentos Alugados</dt>
     <% @contract.equipment.each do |equipment| %>
       <dd><%= equipment.description %></dd>
@@ -21,12 +23,42 @@
     <dd><%= @contract.date_end.strftime('%d/%m/%Y') %></dd>
     <dt>Preço</dt>
     <dd><%= @contract.price %></dd>
-    <dt>Desconto</dt>
-    <dd><%= @contract.discount %></dd>
+    <div>
+      <dt>Desconto</dt>
+      <dd><%= @contract.discount %></dd>
+      <dt>Status</dt>
+      <dd><%= @contract.status %></dd>
+    </div>
+    <br>
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+    <% if @contract.status != 'Encerrado' %>
+      <%= link_to 'Encerrar contrato', edit_contract_path , class: "btn btn-danger" %>
+    <% else %>
+      <a href="#" class="btn btn-success disabled">Contrato encerrado</a>
+    <% end %>
   </dl>
-  <% if @contract.delivery_receipt %>
-    <%= link_to 'Visualizar Recibo de Entrega', delivery_receipt_path(@contract.delivery_receipt), class: 'btn btn-primary btn-sm' %>
-  <% else %>
-    <%= link_to 'Gerar Recibo de Entrega', delivery_receipt_contract_path(@contract),  method: :post, class: 'btn btn-primary btn-sm' %>
-  <% end %>
+  <div>
+    <% if @contract.devolution_receipt %>
+      <%= link_to "Vizualizar Recibo", 
+          contract_devolution_receipt_path(@contract),
+          class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Recibo de devolução", 
+          new_contract_devolution_receipt_path(@contract),
+          class: "btn btn-primary" %>
+    <% end %>
+    
+    <% if @contract.delivery_receipt %>
+      <%= link_to 
+          'Visualizar Recibo de Entrega', 
+          delivery_receipt_path(@contract.delivery_receipt), 
+          class: 'btn btn-primary btn-sm' %>
+    <% else %>
+      <%= link_to 
+          'Gerar Recibo de Entrega', 
+          delivery_receipt_contract_path(@contract),  
+          method: :post, 
+          class: 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
 </section>

@@ -1,10 +1,16 @@
 class ContractsController < ApplicationController
+  before_action :set_contract, only: [:show, :edit]
+
+  def index
+    @contracts = Contract.all
+  end
+
   def show
-    @contract = Contract.find(params[:id])
   end
 
   def new
     @contract = Contract.new
+    @periods = RentalPeriod.all
   end
 
   def create
@@ -17,6 +23,9 @@ class ContractsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def create_delivery_receipt
     @contract = Contract.find(params[:id])
     @contract.create_delivery_receipt
@@ -25,11 +34,15 @@ class ContractsController < ApplicationController
 
   private
 
+  def set_contract
+    @contract = Contract.find(params[:id])
+  end
+
   def contract_params
     params.require(:contract).permit(:contract_number, :order_number, :customer,
                                      :shipping_address, :shipping_contact,
-                                     :rental_period,
+                                     :rental_period_id,
                                      :date_begin, :date_end, :price, :discount,
-                                     equipment_ids: [])
+                                     :status, equipment_ids: [])
   end
 end

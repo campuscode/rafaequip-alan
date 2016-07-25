@@ -17,7 +17,7 @@
     <div class="col-md-8 col-md-offset-2 text-justify">
       <p style="line-height: 2">
           Eu, <%= @delivery_receipt.contract.shipping_contact %>,   em   nome   da   empresa <%= @delivery_receipt.contract.customer %>, inscrita no CNPJ  
-          00.000.000/0001-00 declaro   ter   recebido   os   equipamentos listados abaixo pelo   período   de <%= @delivery_receipt.contract.rental_period %> em   perfeitas condições   de   uso   no   endereço <%= @delivery_receipt.contract.shipping_address %> no   dia  <%= @delivery_receipt.created_at.strftime('%d/%m/%Y') %> de   acordo   com   o   contrato <%= @delivery_receipt.contract.contract_number %>.
+          00.000.000/0001-00 declaro   ter   recebido   os   equipamentos listados abaixo pelo   período   de <%= @delivery_receipt.contract.rental_period.description %> em   perfeitas condições   de   uso   no   endereço <%= @delivery_receipt.contract.shipping_address %> no   dia  <%= @delivery_receipt.created_at.strftime('%d/%m/%Y') %> de   acordo   com   o   contrato <%= @delivery_receipt.contract.contract_number %>.
       </p>
     </div>
     <div class="col-md-8 col-md-offset-2 text-justify">

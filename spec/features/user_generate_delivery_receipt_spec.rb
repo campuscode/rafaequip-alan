@@ -13,7 +13,7 @@ feature 'User generate delivery receipt' do
     expect(page).to have_content(contract.customer)
     expect(page).to have_content(contract.shipping_address)
     expect(page).to have_content(contract.shipping_contact)
-    expect(page).to have_content(contract.rental_period)
+    expect(page).to have_content(contract.rental_period.description)
   end
 
   scenario 'receipt exists' do
@@ -29,6 +29,6 @@ feature 'User generate delivery receipt' do
     expect(page).to have_content(contract.customer)
     expect(page).to have_content(contract.shipping_address)
     expect(page).to have_content(contract.shipping_contact)
-    expect(page).to have_content(contract.rental_period)
+    expect(page).to have_content(contract.rental_period.description)
   end
 end

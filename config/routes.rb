@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "home#index"
-  
-  resources :contracts, only: [:show, :new, :create] do
+
+  resources :contracts, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :devolution_receipts, only: [:show, :new, :create]
+      
     member do
       post 'delivery_receipt', to: 'contracts#create_delivery_receipt' 
     end
