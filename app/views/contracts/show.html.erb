@@ -1,7 +1,5 @@
 <section>
-  <h1>
-    <%= @contract.contract_number %>
-  </h1>
+  <h1><%= @contract.contract_number %></h1>
   <dl class="dl-horizontal">
     <dt>Numero do Pedido</dt>
     <dd><%= @contract.order_number %></dd>
@@ -43,7 +41,7 @@
     <% else %>
       <%= link_to "Recibo de devolução", new_contract_devolution_receipt_path(@contract), class: "btn btn-primary" %>
     <% end %>
-    
+
     <% if @contract.delivery_receipt %>
       <%= link_to 'Visualizar Recibo de Entrega', delivery_receipt_path(@contract.delivery_receipt), class: 'btn btn-primary btn-sm' %>
     <% else %>

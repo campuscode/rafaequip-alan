@@ -15,6 +15,7 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
+    @contract.calc_price
     if @contract.save
       redirect_to @contract
     else

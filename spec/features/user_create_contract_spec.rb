@@ -19,7 +19,6 @@ feature 'user_create_contract' do
     fill_in 'Status',               with: 'teste'
     fill_in 'Data de início',       with: '18/07/2016'
     fill_in 'Data de término',      with: '20/07/2016'
-    fill_in 'Valor total',          with: '500'
     fill_in 'Desconto',             with: '10'
 
     click_on 'Emitir contrato'
@@ -34,7 +33,6 @@ feature 'user_create_contract' do
     expect(page).to have_content('3 dias')
     expect(page).to have_content('18/07/2016')
     expect(page).to have_content('20/07/2016')
-    expect(page).to have_content('500')
     expect(page).to have_content('10')
   end
 
