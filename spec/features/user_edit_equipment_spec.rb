@@ -15,7 +15,7 @@ feature 'User edit equipment' do
                                     serial_number: '555666',
                                     status:        'Alugado')
 
-    fill_in 'Código do cliente',  with: equip_edited.equipment_code
+    fill_in 'Código do equipamento', with: equip_edited.equipment_code
     fill_in 'Descrição',          with: equip_edited.description
     fill_in 'Fornecedor',         with: equip_edited.supplier
     fill_in 'Categoria',          with: equip_edited.category

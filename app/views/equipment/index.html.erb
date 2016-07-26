@@ -1,4 +1,4 @@
-<div>
+<section>
   <h1>Equipamentos</h1>
   <% @equipment.each do |equipment| %>
     <dl class="dl-horizontal">
@@ -16,6 +16,7 @@
       <dd><%= equipment.status %></dd>
     </dl>
   <% end %>
-</div>
-<div><%= link_to 'Voltar', root_path , class: "btn btn-default" %></div>
-<span class="error"><%= notice %></span>
+  <div>
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+  </div>
+<section>

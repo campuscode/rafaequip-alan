@@ -6,7 +6,7 @@ feature 'User create equipment' do
 
     visit new_equipment_path
 
-    fill_in 'Código do cliente',  with: equip.equipment_code
+    fill_in 'Código do equipamento', with: equip.equipment_code
     fill_in 'Descrição',          with: equip.description
     fill_in 'Categoria',          with: equip.category
     fill_in 'Fornecedor',         with: equip.supplier
