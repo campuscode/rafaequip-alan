@@ -10,12 +10,12 @@ feature 'User create a devolution receipt' do
 
     visit contract_path(contract)
 
-    click_on 'Recibo de devolução'
+    click_on 'Gerar Recibo de Devolução'
 
     fill_in 'Funcionário', with: 'Joaquim Roberto'
     fill_in 'CNPJ/CPF', with: '123456789'
 
-    click_on 'Gerar Recibo'
+    click_on 'Gravar Recibo de Devolução'
 
     expect(page).to have_css('h1', text: 'Recibo de Devolução')
     expect(page).to have_content('Joaquim Roberto')
@@ -23,7 +23,7 @@ feature 'User create a devolution receipt' do
     expect(page).to have_content(contract.contract_number)
     expect(page).to have_content(contract.customer)
     expect(page).to have_content('123456789')
-    expect(page).to have_content(contract.date_end)
+    expect(page).to have_content(l(contract.date_end))
     expect(page).to have_content('declaro ter recebido os equipamentos')
     expect(page).to have_content('em devolução referente ao contrato')
     expect(page).to have_content('em perfeitas condições da empresa')
@@ -41,7 +41,7 @@ feature 'User create a devolution receipt' do
 
     visit contract_path(contract)
 
-    click_on 'Vizualizar Recibo'
+    click_on 'Vizualizar Recibo de Devolução'
 
     expect(page).to have_css('h1', text: 'Recibo de Devolução')
     expect(page).to have_content(devolution_receipt.employer)
@@ -49,7 +49,7 @@ feature 'User create a devolution receipt' do
     expect(page).to have_content(contract.contract_number)
     expect(page).to have_content(contract.customer)
     expect(page).to have_content(devolution_receipt.customer_document)
-    expect(page).to have_content(contract.date_end)
+    expect(page).to have_content(l(contract.date_end))
     expect(page).to have_content('declaro ter recebido os equipamentos')
     expect(page).to have_content('em devolução referente ao contrato')
     expect(page).to have_content('em perfeitas condições da empresa')

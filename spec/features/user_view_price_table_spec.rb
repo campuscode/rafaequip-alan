@@ -14,6 +14,6 @@ feature 'User view price table' do
     expect(page).to have_content('Preço')
     expect(page).to have_content(price.equipment.description)
     expect(page).to have_content(price.rental_period.description)
-    expect(page).to have_content(price.amount)
+    expect(page).to have_content(number_to_currency(price.amount))
   end
 end

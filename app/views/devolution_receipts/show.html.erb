@@ -10,11 +10,13 @@
                 Eu,
                 <strong><%= @devolution_receipt.employer %></strong>,
                 declaro ter recebido os equipamentos
+                
                 <% @devolution_receipt.contract.equipment.each do |equip| %>
-                <%= equip.description %>
-                |
-                <%= equip.serial_number %>
+                    <%= equip.description %>
+                    |
+                    <%= equip.serial_number %>
                 <% end %>
+                
                 em devolução referente ao contrato
                 <strong><%= @devolution_receipt.contract.contract_number %></strong>
                 em perfeitas condições da empresa
@@ -22,7 +24,7 @@
                 inscrita no CNPJ
                 <strong><%= @devolution_receipt.customer_document %></strong>
                 no dia
-                <strong><%= @devolution_receipt.contract.date_end %></strong>.
+                <strong><%= l(@devolution_receipt.contract.date_end) %></strong>.
             </p><br>
             <div class="text-center">
                 <p>

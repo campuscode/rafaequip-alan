@@ -9,7 +9,7 @@
       <dt>Categoria: </dt>
       <dd><%= equipment.category %></dd>
       <dt>Valor: </dt>
-      <dd><%= equipment.price %></dd>
+      <dd><%= number_to_currency(equipment.price) %></dd>
       <dt>Serial: </dt>
       <dd><%= equipment.serial_number %></dd>
       <dt>Status: </dt>

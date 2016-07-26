@@ -13,9 +13,9 @@ feature 'User View Contracts List' do
     expect(page).to have_content contract.shipping_address
     expect(page).to have_content contract.shipping_contact
     expect(page).to have_content contract.rental_period.description
-    expect(page).to have_content contract.date_begin
-    expect(page).to have_content contract.date_end
-    expect(page).to have_content contract.price
-    expect(page).to have_content contract.discount
+    expect(page).to have_content l(contract.date_begin)
+    expect(page).to have_content l(contract.date_end)
+    expect(page).to have_content number_to_currency(contract.price)
+    expect(page).to have_content number_to_currency(contract.discount)
   end
 end

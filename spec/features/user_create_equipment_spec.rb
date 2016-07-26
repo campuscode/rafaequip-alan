@@ -20,7 +20,7 @@ feature 'User create equipment' do
     expect(page).to have_content equip.description
     expect(page).to have_content equip.supplier
     expect(page).to have_content equip.category
-    expect(page).to have_content equip.price
+    expect(page).to have_content number_to_currency(equip.price)
     expect(page).to have_content equip.serial_number
     expect(page).to have_content equip.status
   end
