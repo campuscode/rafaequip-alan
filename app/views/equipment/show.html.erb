@@ -10,7 +10,7 @@
     <dt>Fornecedor</dt>
     <dd><%= @equipment.supplier %></dd>
     <dt>Preço</dt>
-    <dd><%= @equipment.price %></dd>
+    <dd><%= number_to_currency(@equipment.price) %></dd>
     <dt>Número de série</dt>
     <dd><%= @equipment.serial_number %></dd>
     <dt>Status</dt>

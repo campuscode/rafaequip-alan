@@ -13,7 +13,7 @@
         <tr>
           <td><%= price.equipment.description %></td>
           <td><%= price.rental_period.description %></td>
-          <td><%= price.amount %></td>
+          <td><%= number_to_currency(price.amount) %></td>
         </tr>
         <% end %>
     </tbody>

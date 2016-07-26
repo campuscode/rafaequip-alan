@@ -34,15 +34,14 @@ class ContractsController < ApplicationController
     redirect_to @contract.delivery_receipt
   end
 
-
   private
 
   def contract_params
-    params.require(:contract).permit(:contract_number, :order_number, :customer,
-                                   :shipping_address, :shipping_contact,
-                                   :rental_period_id,
-                                   :date_begin, :date_end, :price, :discount,
-                                   equipment_ids: [])
+    params.require(:contract).permit(:contract_number, :order_number,
+                                     :customer, :shipping_address,
+                                     :shipping_contact, :rental_period_id,
+                                     :date_begin, :date_end,
+                                     :price, :discount, equipment_ids: [])
   end
 
   def set_contract

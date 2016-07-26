@@ -37,3 +37,14 @@ Price.create(amount: 1102.0, equipment: equipment2, rental_period: period4)
 Price.create(amount: 1302.0, equipment: equipment2, rental_period: period5)
 Price.create(amount: 1600.0, equipment: equipment2, rental_period: period6)
 Price.create(amount: 1800.0, equipment: equipment2, rental_period: period7)
+
+
+Proposal.create(name: 'João Almeida',
+                mail: 'contato@campuscode.com.br',
+                phone: '11 2020-4321',
+                description: 'Quero 2 furadeiras e 1 parafusadeira')
+
+Proposal.create(name: 'Alan',
+                mail: 'alan@campuscode.com.br',
+                phone: '11 2020-4321',
+                description: 'Quero 1 furadeiras e 1 parafusadeira')

@@ -25,10 +25,10 @@
         <td><%= contract.shipping_address %></td>
         <td><%= contract.shipping_contact %></td>
         <td><%= contract.rental_period.description %></td>
-        <td><%= contract.date_begin %></td>
-        <td><%= contract.date_end %></td>
-        <td><%= contract.price %></td>
-        <td><%= contract.discount %></td>
+        <td><%= l(contract.date_begin) %></td>
+        <td><%= l(contract.date_end) %></td>
+        <td><%= number_to_currency(contract.price) %></td>
+        <td><%= number_to_currency(contract.discount) %></td>
         <td><%= contract.status %></td>
         <td><%= link_to 'Detalhes', contract, class: "btn btn-default btn-sm" %></td>
       </tr>

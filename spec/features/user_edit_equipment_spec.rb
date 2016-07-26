@@ -28,7 +28,7 @@ feature 'User edit equipment' do
     expect(page).to have_content equip_edited.description
     expect(page).to have_content equip_edited.supplier
     expect(page).to have_content equip_edited.category
-    expect(page).to have_content equip_edited.price
+    expect(page).to have_content number_to_currency(equip_edited.price)
     expect(page).to have_content equip_edited.serial_number
     expect(page).to have_content equip_edited.available
   end

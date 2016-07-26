@@ -16,14 +16,14 @@
       <dd><%= equipment.description %></dd>
     <% end %>
     <dt>Inicio da Locação</dt>
-    <dd><%= @contract.date_begin.strftime('%d/%m/%Y') %></dd>
+    <dd><%= l(@contract.date_begin) %></dd>
     <dt>Fim da locação</dt>
-    <dd><%= @contract.date_end.strftime('%d/%m/%Y') %></dd>
+    <dd><%= l(@contract.date_end) %></dd>
     <dt>Preço</dt>
-    <dd><%= @contract.price %></dd>
+    <dd><%= number_to_currency(@contract.price) %></dd>
     <div>
       <dt>Desconto</dt>
-      <dd><%= @contract.discount %></dd>
+      <dd><%= number_to_currency(@contract.discount) %></dd>
       <dt>Status</dt>
       <dd><%= @contract.status %></dd>
     </div>
@@ -37,9 +37,9 @@
   </dl>
   <div>
     <% if @contract.devolution_receipt %>
-      <%= link_to "Vizualizar Recibo", contract_devolution_receipt_path(@contract), class: "btn btn-primary" %>
+      <%= link_to "Vizualizar Recibo de Devolução", contract_devolution_receipt_path(@contract), class: 'btn btn-primary btn-sm' %>
     <% else %>
-      <%= link_to "Recibo de devolução", new_contract_devolution_receipt_path(@contract), class: "btn btn-primary" %>
+      <%= link_to "Gerar Recibo de Devolução", new_contract_devolution_receipt_path(@contract), class: 'btn btn-primary btn-sm' %>
     <% end %>
 
     <% if @contract.delivery_receipt %>
