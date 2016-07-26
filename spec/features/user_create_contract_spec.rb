@@ -4,7 +4,7 @@ feature 'user_create_contract' do
   scenario 'successfully' do
     equipment   = create(:equipment)
     equipment1  = create(:equipment, description: 'Furadeira')
-    period      = create(:rental_period, description: '3 dias')
+    period      = create(:rental_period, description: '3 dias', period: 3)
 
     visit new_contract_path
 
@@ -17,7 +17,6 @@ feature 'user_create_contract' do
     select equipment1.description, from: 'Equipment'
     select  period.description, from: 'Prazo de locação'
     fill_in 'Data de início', with: '18/07/2016'
-    fill_in 'Data de término', with: '20/07/2016'
     fill_in 'Desconto', with: '10'
 
     click_on 'Emitir contrato'
@@ -31,7 +30,7 @@ feature 'user_create_contract' do
     expect(page).to have_content(equipment1.description)
     expect(page).to have_content('3 dias')
     expect(page).to have_content('18/07/2016')
-    expect(page).to have_content('20/07/2016')
+    expect(page).to have_content('21/07/2016')
     expect(page).to have_content('10')
   end
 
