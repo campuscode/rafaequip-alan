@@ -10,7 +10,7 @@ feature 'User create a devolution receipt' do
 
     visit contract_path(contract)
 
-    click_on 'Recibo de devolução'
+    click_on 'Gerar Recibo de Devolução'
 
     fill_in 'Funcionário', with: 'Joaquim Roberto'
     fill_in 'CNPJ/CPF', with: '123456789'
@@ -41,7 +41,7 @@ feature 'User create a devolution receipt' do
 
     visit contract_path(contract)
 
-    click_on 'Vizualizar Recibo'
+    click_on 'Vizualizar Recibo de Devolução'
 
     expect(page).to have_css('h1', text: 'Recibo de Devolução')
     expect(page).to have_content(devolution_receipt.employer)

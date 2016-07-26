@@ -5,6 +5,7 @@ class Contract < ApplicationRecord
 
   before_save do
     calc_price
+    set_initial_status
   end
 
   belongs_to :rental_period
@@ -22,5 +23,9 @@ class Contract < ApplicationRecord
       total += price.try(:amount).to_f
     end
     self.price = total
+  end
+
+  def set_initial_status
+    self.status ||= 'Em aberto'
   end
 end

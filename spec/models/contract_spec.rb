@@ -45,4 +45,17 @@ describe Contract do
       expect(Contract.last.equipment).to match_array(equip_list)
     end
   end
+
+  describe '#set_initial_status' do
+    it 'when contract is create' do
+      contract = create(:contract)
+      expect(contract.status).to eq('Em aberto')
+    end
+
+    it 'when contract already exists with status' do
+      contract = create(:contract, status: 'Encerrado')
+
+      expect(contract.status).to eq('Encerrado')
+    end
+  end
 end
