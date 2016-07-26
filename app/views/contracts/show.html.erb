@@ -24,7 +24,7 @@
     <dt>Desconto</dt>
     <dd><%= number_to_currency(@contract.discount) %></dd>
     <dt>Valor a ser pago</dt>
-    <dd><%= number_to_currency(@contract.get_total_value)%></dd>
+    <dd><%= number_to_currency(@contract.total_value)%></dd>
     <dt>Status</dt>
     <dd><%= @contract.status %></dd>
   </dl>

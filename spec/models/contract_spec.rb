@@ -59,9 +59,8 @@ describe Contract do
     end
   end
 
-  describe '#get_total_value' do
+  describe '#total_value' do
     it 'when contract is create' do
-
       equipment = create(:equipment)
       rental_period = create(:rental_period, description: '1 dia')
       create(:price, equipment: equipment, rental_period: rental_period,
@@ -71,8 +70,8 @@ describe Contract do
                         equipment: [equipment],
                         rental_period: rental_period,
                         discount: 30)
-                        
-      expect(contract.get_total_value).to eq(70)
+
+      expect(contract.total_value).to eq(70)
     end
   end
 end

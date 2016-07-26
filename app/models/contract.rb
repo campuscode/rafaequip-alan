@@ -14,8 +14,8 @@ class Contract < ApplicationRecord
   has_one    :devolution_receipt
   has_one    :delivery_receipt
 
-  def get_total_value
-    price - discount if price 
+  def total_value
+    price - discount if price
   end
 
   private
