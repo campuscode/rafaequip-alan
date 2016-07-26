@@ -1,13 +1,19 @@
 class Contract < ApplicationRecord
   validates :contract_number, :customer, :shipping_address, :rental_period_id,
             :shipping_contact, :date_begin, :date_end,
-            :price, :discount, :status, presence: true
+            :discount, :status, presence: true
+
+  before_save do
+    calc_price
+  end
 
   belongs_to :rental_period
   has_many   :rented_equipment
   has_many   :equipment, through: :rented_equipment
   has_one    :devolution_receipt
   has_one    :delivery_receipt
+
+  private
 
   def calc_price
     total = 0

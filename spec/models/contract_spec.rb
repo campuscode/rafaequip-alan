@@ -11,7 +11,7 @@ describe Contract do
       contract = create(:contract,
                         equipment: [equipment],
                         rental_period: rental_period)
-      contract.calc_price
+
       expect(contract.price).to eq(150.0)
     end
 
@@ -31,7 +31,7 @@ describe Contract do
       contract = create(:contract,
                         equipment: equip_list,
                         rental_period: rental_period)
-      contract.calc_price
+
       expect(contract.price).to eq(300.0)
     end
   end
