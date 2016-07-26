@@ -7,7 +7,7 @@ feature 'User view equipment list' do
                                     serial_number: '654321')
 
     visit root_path
-    click_on 'Visualizar equipamentos'
+    click_on 'Visualizar Equipamentos'
 
     expect(page).to have_content equipment1.equipment_code
     expect(page).to have_content equipment1.description
