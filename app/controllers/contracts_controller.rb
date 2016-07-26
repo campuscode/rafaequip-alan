@@ -41,7 +41,7 @@ class ContractsController < ApplicationController
                                      :order_number, :customer,
                                      :shipping_address, :shipping_contact,
                                      :rental_period_id,
-                                     :date_begin, :date_end, :discount,
+                                     :date_begin, :discount,
                                      equipment_ids: [])
   end
 

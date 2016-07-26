@@ -1,10 +1,10 @@
-period1 = RentalPeriod.create(description: '1 dia')
-period2 = RentalPeriod.create(description: '3 dias')
-period3 = RentalPeriod.create(description: '5 dias')
-period4 = RentalPeriod.create(description: '7 dias')
-period5 = RentalPeriod.create(description: '15 dias')
-period6 = RentalPeriod.create(description: '21 dias')
-period7 = RentalPeriod.create(description: '30 dias')
+period1 = RentalPeriod.create(description: '1 dia', period: 1)
+period2 = RentalPeriod.create(description: '3 dias', period: 3)
+period3 = RentalPeriod.create(description: '5 dias', period: 5)
+period4 = RentalPeriod.create(description: '7 dias', period: 7)
+period5 = RentalPeriod.create(description: '15 dias', period: 15)
+period6 = RentalPeriod.create(description: '21 dias', period: 21)
+period7 = RentalPeriod.create(description: '30 dias', period: 30)
 
 equipment1 = Equipment.create(equipment_code: 2031,
                               description: 'Furadeira',

@@ -3,6 +3,8 @@ class Contract < ApplicationRecord
             :shipping_contact, :date_begin, :date_end,
             :discount, presence: true
 
+  before_validation :calc_date_end
+
   before_save do
     calc_price
     set_initial_status
@@ -27,6 +29,10 @@ class Contract < ApplicationRecord
       total += price.try(:amount).to_f
     end
     self.price = total
+  end
+
+  def calc_date_end
+    self.date_end = date_begin + rental_period.period if rental_period
   end
 
   def set_initial_status
