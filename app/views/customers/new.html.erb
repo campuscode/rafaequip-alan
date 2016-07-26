@@ -1,0 +1,15 @@
+<section>
+  <%= simple_form_for @customer do |f| %>
+    <%= f.input :code, label: 'Código do cliente' %>
+    <%= f.input :name, label: 'Razão Social' %>
+    <%= f.input :document, label: 'CPF/CNPJ' %>
+    <%= f.input :billing_address, label: 'Endereço de cobrança' %>
+    <%= f.input :billing_city, label: 'Cidade' %>
+    <%= f.input :billing_state, label: 'Estado' %>
+    <%= f.input :billing_zipcode, label: 'CEP' %>
+    <%= f.input :financial_contact, label: 'Contato Financeiro' %>
+
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+    <%= f.button :submit, 'Criar Cliente' %>
+  <% end %>
+</section>

@@ -3,7 +3,8 @@
   <%= simple_form_for @contract do |f| %>
     <%= f.input :contract_number, label: 'Número do contrato' %>
     <%= f.input :order_number, label: 'Número do pedido' %>
-    <%= f.input :customer, label: 'Cliente' %>
+    <%= f.input :customer_id, label: 'Cliente',
+                                   collection: @customers %>
     <%= f.input :shipping_contact, label: 'Contato de entrega' %>
     <%= f.input :shipping_address, label: 'Endereço de entrega' %>
     <%= f.input :date_begin, label: 'Data de início', as: :date, html5: true %>

@@ -1,0 +1,24 @@
+<section>
+  <h1><%= @customer.name %></h1>
+  <dl class="dl-horizontal">
+    <dt>Código do cliente</dt>
+    <dd><%= @customer.code %></dd>
+    <dt>Razão Social</dt>
+    <dd><%= @customer.name %></dd>
+    <dt>CPF/CNPJ</dt>
+    <dd><%= @customer.document %></dd>
+    <dt>Endereço de Cobrança</dt>
+    <dd><%= @customer.billing_address %></dd>
+    <dt>Cidade</dt>
+    <dd><%= @customer.billing_city %></dd>
+    <dt>Estado</dt>
+    <dd><%= @customer.billing_state %></dd>
+    <dt>CEP</dt>
+    <dd><%= @customer.billing_zipcode %></dd>
+    <dt>Contato Financeiro</dt>
+    <dd><%= @customer.financial_contact %></dd>
+  </dl>
+  <div>
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>    
+  </div>
+</section>

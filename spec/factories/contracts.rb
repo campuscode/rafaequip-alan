@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :contract do
     contract_number 1
     order_number 1
-    customer 'Odebrecht'
+    customer
     shipping_address 'Al Santos 1293'
     shipping_contact 'João Almeida'
     rental_period
