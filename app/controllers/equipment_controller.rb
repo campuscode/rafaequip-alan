@@ -40,7 +40,7 @@ class EquipmentController < ApplicationController
   def equipment_params
     params.require(:equipment).permit(:equipment_code, :description, :supplier,
                                       :category, :price, :serial_number,
-                                      :status)
+                                      :available)
   end
 
   def find_equipment

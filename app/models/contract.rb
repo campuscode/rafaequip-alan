@@ -1,7 +1,7 @@
 class Contract < ApplicationRecord
   validates :contract_number, :customer, :shipping_address, :rental_period_id,
             :shipping_contact, :date_begin, :date_end,
-            :discount, :status, presence: true
+            :discount, presence: true
 
   before_save do
     calc_price

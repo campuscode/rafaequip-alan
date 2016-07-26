@@ -8,18 +8,18 @@ feature 'user_create_contract' do
 
     visit new_contract_path
 
-    fill_in 'Número do contrato',   with: '123'
-    fill_in 'Número do pedido',     with: '123456'
-    fill_in 'Cliente',              with: 'Campus Code'
-    fill_in 'Endereço de entrega',  with: 'Alameda Santos, 1293'
-    fill_in 'Contato de entrega',   with: 'Alan'
-    select equipment.description,   from: 'Equipment'
-    select equipment1.description,  from: 'Equipment'
-    select  period.description,     from: 'Prazo de locação'
-    fill_in 'Status',               with: 'teste'
-    fill_in 'Data de início',       with: '18/07/2016'
-    fill_in 'Data de término',      with: '20/07/2016'
-    fill_in 'Desconto',             with: '10'
+    fill_in 'Número do contrato', with: '123'
+    fill_in 'Número do pedido', with: '123456'
+    fill_in 'Cliente', with: 'Campus Code'
+    fill_in 'Endereço de entrega', with: 'Alameda Santos, 1293'
+    fill_in 'Contato de entrega', with: 'Alan'
+    select equipment.description, from: 'Equipment'
+    select equipment1.description, from: 'Equipment'
+    select  period.description, from: 'Prazo de locação'
+    fill_in 'Data de início', with: '18/07/2016'
+    fill_in 'Data de término', with: '20/07/2016'
+    fill_in 'Valor total', with: '500'
+    fill_in 'Desconto', with: '10'
 
     click_on 'Emitir contrato'
 
