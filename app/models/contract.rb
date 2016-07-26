@@ -1,6 +1,6 @@
 class Contract < ApplicationRecord
-  validates :contract_number, :customer, :shipping_address, :rental_period_id,
-            :shipping_contact, :date_begin, :date_end,
+  validates :contract_number, :customer_id, :shipping_address,
+            :rental_period_id, :shipping_contact, :date_begin, :date_end,
             :discount, presence: true
 
   before_save do
@@ -8,6 +8,7 @@ class Contract < ApplicationRecord
     set_initial_status
   end
 
+  belongs_to :customer
   belongs_to :rental_period
   has_many   :rented_equipment
   has_many   :equipment, through: :rented_equipment

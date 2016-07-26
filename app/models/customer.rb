@@ -6,5 +6,8 @@ class Customer < ApplicationRecord
             :billing_city,
             :billing_state,
             :billing_zipcode,
+            :financial_contact,
             presence: true
+
+  has_many :contracts
 end

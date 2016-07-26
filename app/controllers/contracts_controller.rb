@@ -10,6 +10,7 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
+    @customers = Customer.all
     @periods = RentalPeriod.all
     @equipment = Equipment.where(available: true)
   end
@@ -38,7 +39,7 @@ class ContractsController < ApplicationController
 
   def contract_params
     params.require(:contract).permit(:contract_number,
-                                     :order_number, :customer,
+                                     :order_number, :customer_id,
                                      :shipping_address, :shipping_contact,
                                      :rental_period_id,
                                      :date_begin, :date_end, :discount,

@@ -9,7 +9,7 @@ feature 'User View Contracts List' do
 
     expect(page).to have_content contract.contract_number
     expect(page).to have_content contract.order_number
-    expect(page).to have_content contract.customer
+    expect(page).to have_content contract.customer.name
     expect(page).to have_content contract.shipping_address
     expect(page).to have_content contract.shipping_contact
     expect(page).to have_content contract.rental_period.description

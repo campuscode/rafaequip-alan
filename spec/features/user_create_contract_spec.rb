@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'user_create_contract' do
   scenario 'successfully' do
+    customer    = create(:customer, name: 'Campus Code')
     equipment   = create(:equipment)
     equipment1  = create(:equipment, description: 'Furadeira')
     period      = create(:rental_period, description: '3 dias')
@@ -10,7 +11,7 @@ feature 'user_create_contract' do
 
     fill_in 'Número do contrato', with: '123'
     fill_in 'Número do pedido', with: '123456'
-    fill_in 'Cliente', with: 'Campus Code'
+    select customer.name, from: 'Cliente'
     fill_in 'Endereço de entrega', with: 'Alameda Santos, 1293'
     fill_in 'Contato de entrega', with: 'Alan'
     select equipment.description, from: 'Equipment'
@@ -24,7 +25,7 @@ feature 'user_create_contract' do
 
     expect(page).to have_css('h1', text: '123')
     expect(page).to have_content('123456')
-    expect(page).to have_content('Campus Code')
+    expect(page).to have_content(customer.name)
     expect(page).to have_content('Alameda Santos, 1293')
     expect(page).to have_content('Alan')
     expect(page).to have_content(equipment.description)

@@ -1,5 +1,5 @@
 <section>
-  <h1><%= @customer.code %></h1>
+  <h1><%= @customer.name %></h1>
   <dl class="dl-horizontal">
     <dt>Código do cliente</dt>
     <dd><%= @customer.code %></dd>
@@ -18,4 +18,7 @@
     <dt>Contato Financeiro</dt>
     <dd><%= @customer.financial_contact %></dd>
   </dl>
+  <div>
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>    
+  </div>
 </section>
