@@ -19,14 +19,14 @@
     <dd><%= l(@contract.date_begin) %></dd>
     <dt>Fim da locação</dt>
     <dd><%= l(@contract.date_end) %></dd>
-    <dt>Preço</dt>
+    <dt>Valor Total</dt>
     <dd><%= number_to_currency(@contract.price) %></dd>
-    <div>
-      <dt>Desconto</dt>
-      <dd><%= number_to_currency(@contract.discount) %></dd>
-      <dt>Status</dt>
-      <dd><%= @contract.status %></dd>
-    </div>
+    <dt>Desconto</dt>
+    <dd><%= number_to_currency(@contract.discount) %></dd>
+    <dt>Valor a ser pago</dt>
+    <dd><%= number_to_currency(@contract.get_total_value)%></dd>
+    <dt>Status</dt>
+    <dd><%= @contract.status %></dd>
   </dl>
   <div>
     <%= link_to 'Voltar', root_path , class: "btn btn-default" %>

@@ -33,6 +33,7 @@ feature 'user_create_contract' do
     expect(page).to have_content('18/07/2016')
     expect(page).to have_content('20/07/2016')
     expect(page).to have_content('10')
+    expect(page).to have_content('Valor a ser pago')
   end
 
   scenario 'with invalid data' do
