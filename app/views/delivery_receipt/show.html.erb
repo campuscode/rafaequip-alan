@@ -2,62 +2,65 @@
   <div class="row">
     <div class="page-header col-md-6 col-md-offset-3 text-center">
       <h1>
-        Recibo de Entrega        
+        Recibo de Entrega
       </h1>
-    </div> 
+    </div>
     <div class="col-md-6 col-md-offset-3 text-center">
       <h4>
         <p style="line-height: 4">
           São Paulo, <%= l( @delivery_receipt.created_at.to_date , format: :long) %>
         </p>
-      </h4>        
+      </h4>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2 text-justify">
       <p style="line-height: 2">
-          Eu, <%= @delivery_receipt.contract.shipping_contact %>,   em   nome   da   empresa <%= @delivery_receipt.contract.customer %>, inscrita no CNPJ  
+          Eu, <%= @delivery_receipt.contract.shipping_contact %>,   em   nome   da   empresa <%= @delivery_receipt.contract.customer %>, inscrita no CNPJ
           00.000.000/0001-00 declaro   ter   recebido   os   equipamentos listados abaixo pelo   período   de <%= @delivery_receipt.contract.rental_period.description %> em   perfeitas condições   de   uso   no   endereço <%= @delivery_receipt.contract.shipping_address %> no   dia  <%= l( @delivery_receipt.created_at.to_date) %> de   acordo   com   o   contrato <%= @delivery_receipt.contract.contract_number %>.
       </p>
     </div>
     <div class="col-md-8 col-md-offset-2 text-justify">
       <p style="line-height: 5">
-        Equipamentos: 
+        Equipamentos:
       </p>
     </div>
     <div class="col-md-6 col-md-offset-3 text-justify">
-      <div class="bs-example" data-example-id="striped-table"> 
-        <table class="table table-striped"> 
-          <thead> 
-            <tr> 
-              <th>Número de Série</th> 
-              <th>Equipamento</th> 
-            </tr> 
-          </thead> 
-          <tbody> 
+      <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Número de Série</th>
+              <th>Equipamento</th>
+            </tr>
+          </thead>
+          <tbody>
             <% @delivery_receipt.contract.equipment.each do |equipment| %>
-              <tr>  
-                <td> 
-                  <%= equipment.description %> 
+              <tr>
+                <td>
+                  <%= equipment.description %>
                 </td>
                 <td>
                   <%= equipment.serial_number %>
                 </td>
-              </tr> 
+              </tr>
             <% end %>
-          </tbody> 
-        </table> 
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="col-md-6 col-md-offset-3 text-center">
       <p>
         <div class="col-md-6 col-md-offset-3 text-center">
-          _____________________________ 
+          _____________________________
         </div>
         <div class="col-md-6 col-md-offset-3 text-center">
-          Assinatura do Responsável   
+          Assinatura do Responsável
         </div>
-      </p>    
+      </p>
     </div>
+  </div>
+  <div class="row">
+    <%= link_to 'Voltar', contract_path(@delivery_receipt.contract) , class: "btn btn-default" %>
   </div>
 </section>

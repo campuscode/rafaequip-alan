@@ -11,16 +11,14 @@ equipment1 = Equipment.create(equipment_code: 2031,
                               supplier: 'Bosch',
                               category: 'Furadeiras',
                               price: 500.0,
-                              serial_number: '987654132',
-                              status: 'Disponível')
+                              serial_number: '987654132')
 
 equipment2 = Equipment.create(equipment_code: 2032,
                               description: 'Betoneira',
                               supplier: 'Lee Tool',
                               category: 'Betoneiras',
                               price: 943.0,
-                              serial_number: '12312900973',
-                              status: 'Disponível')
+                              serial_number: '12312900973')
 
 Price.create(amount: 79.0, equipment: equipment1, rental_period: period1)
 Price.create(amount: 179.0, equipment: equipment1, rental_period: period2)

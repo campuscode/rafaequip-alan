@@ -15,7 +15,7 @@ feature 'User create a devolution receipt' do
     fill_in 'Funcionário', with: 'Joaquim Roberto'
     fill_in 'CNPJ/CPF', with: '123456789'
 
-    click_on 'Gravar Recibo de Devolução'
+    click_on 'Gerar Recibo'
 
     expect(page).to have_css('h1', text: 'Recibo de Devolução')
     expect(page).to have_content('Joaquim Roberto')

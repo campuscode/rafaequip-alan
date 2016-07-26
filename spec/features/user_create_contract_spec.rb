@@ -18,7 +18,6 @@ feature 'user_create_contract' do
     select  period.description, from: 'Prazo de locação'
     fill_in 'Data de início', with: '18/07/2016'
     fill_in 'Data de término', with: '20/07/2016'
-    fill_in 'Valor total', with: '500'
     fill_in 'Desconto', with: '10'
 
     click_on 'Emitir contrato'
