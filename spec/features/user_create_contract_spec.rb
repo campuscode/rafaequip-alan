@@ -16,7 +16,6 @@ feature 'user_create_contract' do
     select equipment.description, from: 'Equipment'
     select equipment1.description, from: 'Equipment'
     select  period.description, from: 'Prazo de locação'
-    fill_in 'Status', with: 'teste'
     fill_in 'Data de início', with: '18/07/2016'
     fill_in 'Data de término', with: '20/07/2016'
     fill_in 'Valor total', with: '500'

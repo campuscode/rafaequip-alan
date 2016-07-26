@@ -10,6 +10,7 @@ class ContractsController < ApplicationController
   def new
     @contract = Contract.new
     @periods = RentalPeriod.all
+    @equipment = Equipment.where(available: true)
   end
 
   def create
@@ -18,6 +19,7 @@ class ContractsController < ApplicationController
       redirect_to @contract
     else
       flash.now[:notice] = 'Não foi possível emitir contrato'
+      @equipment = Equipment.where(available: true)
       render :new
     end
   end
@@ -33,7 +35,7 @@ def contract_params
                                    :shipping_address, :shipping_contact,
                                    :rental_period_id,
                                    :date_begin, :date_end, :price, :discount,
-                                   :status, equipment_ids: [])
+                                   equipment_ids: [])
 end
 
 def set_contract

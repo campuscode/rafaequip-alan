@@ -13,15 +13,14 @@ feature 'User edit equipment' do
                                     category:      'Betoneira Elétrica',
                                     price:         1500.00,
                                     serial_number: '555666',
-                                    status:        'Alugado')
+                                    available:     true)
 
-    fill_in 'Código do cliente',  with: equip_edited.equipment_code
+    fill_in 'Código do equipamento', with: equip_edited.equipment_code
     fill_in 'Descrição',          with: equip_edited.description
     fill_in 'Fornecedor',         with: equip_edited.supplier
     fill_in 'Categoria',          with: equip_edited.category
     fill_in 'Preço',              with: equip_edited.price
     fill_in 'Número de série',    with: equip_edited.serial_number
-    fill_in 'Status',             with: equip_edited.status
 
     click_on 'Atualizar Equipamento'
 
@@ -31,7 +30,7 @@ feature 'User edit equipment' do
     expect(page).to have_content equip_edited.category
     expect(page).to have_content equip_edited.price
     expect(page).to have_content equip_edited.serial_number
-    expect(page).to have_content equip_edited.status
+    expect(page).to have_content equip_edited.available
   end
 
   scenario 'with valid data' do
@@ -44,7 +43,6 @@ feature 'User edit equipment' do
     fill_in 'Categoria',       with: ''
     fill_in 'Preço',           with: ''
     fill_in 'Número de série', with: ''
-    fill_in 'Status',          with: ''
 
     click_on 'Atualizar Equipamento'
 
