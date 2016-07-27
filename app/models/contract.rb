@@ -3,15 +3,19 @@ class Contract < ApplicationRecord
             :shipping_contact, :date_begin, :date_end,
             :discount, presence: true
 
-  before_save do
-    calc_price
-  end
+  before_save :calc_price
+  after_create :set_equipment_unavailable
 
   belongs_to :rental_period
   has_many   :rented_equipment
   has_many   :equipment, through: :rented_equipment
   has_one    :devolution_receipt
   has_one    :delivery_receipt
+
+  def close
+    update(status: 'Encerrado')
+    set_equipment_available
+  end
 
   private
 
@@ -22,5 +26,17 @@ class Contract < ApplicationRecord
       total += price.try(:amount).to_f
     end
     self.price = total
+  end
+
+  def set_equipment_unavailable
+    equipment.each do |equip|
+      equip.update(available: false)
+    end
+  end
+
+  def set_equipment_available
+    equipment.each do |equip|
+      equip.update(available: true)
+    end
   end
 end

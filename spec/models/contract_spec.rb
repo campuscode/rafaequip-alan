@@ -45,4 +45,26 @@ describe Contract do
       expect(Contract.last.equipment).to match_array(equip_list)
     end
   end
+
+  describe '#equipment_unavailable' do
+    it 'Equipment must be unavailable' do
+      contract = create(:contract, equipment: create_list(:equipment, 2))
+
+      contract.equipment.each do |equip|
+        expect(equip).to_not be_available
+      end
+    end
+  end
+
+  describe '#equipment_available' do
+    it 'Equipment must be available' do
+      equip_list = create_list(:equipment, 2)
+      contract = create(:contract, equipment: equip_list)
+      contract.close
+
+      contract.equipment.each do |equip|
+        expect(equip).to be_available
+      end
+    end
+  end
 end
