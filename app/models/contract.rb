@@ -4,11 +4,8 @@ class Contract < ApplicationRecord
             :discount, presence: true
 
   before_validation :calc_date_end
-
-  before_save do
-    calc_price
-    set_initial_status
-  end
+  before_save :calc_price, :set_initial_status
+  after_create :set_equipment_unavailable
 
   belongs_to :customer
   belongs_to :rental_period
@@ -19,6 +16,11 @@ class Contract < ApplicationRecord
 
   def total_value
     price - discount if price
+  end
+
+  def close
+    update(status: 'Encerrado')
+    set_equipment_available
   end
 
   private
@@ -38,5 +40,17 @@ class Contract < ApplicationRecord
 
   def set_initial_status
     self.status ||= 'Em aberto'
+  end
+
+  def set_equipment_unavailable
+    equipment.each do |equip|
+      equip.update(available: false)
+    end
+  end
+
+  def set_equipment_available
+    equipment.each do |equip|
+      equip.update(available: true)
+    end
   end
 end

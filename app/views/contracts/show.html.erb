@@ -31,7 +31,7 @@
   <div>
     <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
     <% if @contract.status != 'Encerrado' %>
-      <%= link_to 'Encerrar contrato', edit_contract_path , class: "btn btn-danger" %>
+      <%= link_to 'Encerrar contrato', close_contract_path(@contract) , method: :put, class: "btn btn-danger" %>
     <% else %>
       <a href="#" class="btn btn-success disabled">Contrato encerrado</a>
     <% end %>

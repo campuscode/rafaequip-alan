@@ -1,5 +1,5 @@
 class ContractsController < ApplicationController
-  before_action :set_contract, only: [:show, :edit]
+  before_action :set_contract, only: [:show, :edit, :close]
 
   def index
     @contracts = Contract.all
@@ -25,6 +25,11 @@ class ContractsController < ApplicationController
   end
 
   def edit
+  end
+
+  def close
+    @contract.close
+    redirect_to @contract
   end
 
   def create_delivery_receipt
