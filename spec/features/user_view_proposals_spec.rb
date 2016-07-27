@@ -16,21 +16,32 @@ feature 'user view proposals' do
     expect(page).to have_content(proposal2.phone)
     expect(page).to have_content(proposal2.description)
   end
+
   scenario 'order by created at' do
-    created_at = DateTime.now
-    
-    proposal1 = create(:proposal, name: 'Proposta 1', created_at: created_at+1)
-    proposal2 = create(:proposal, name: 'Proposta 2', created_at: created_at+2)
+    created_at = DateTime.current
+
+    proposal1 = create(:proposal,
+                       name: 'Proposta 1',
+                       created_at: created_at + 1)
+
+    proposal2 = create(:proposal,
+                       name: 'Proposta 2',
+                       created_at: created_at + 2)
+
+    proposal3 = create(:proposal,
+                       name: 'Proposta 3',
+                       created_at: created_at + 3)
 
     visit proposals_path
-    puts page.html
-    
-    expect(page.find("tr:nth-child(2) td:nth-child(5)")).to have_content l(proposal2.created_at)
-        #expect(page.find('table:tbody:tr:th-child(1)')).to have_content l(proposal2.created_at)
-    
-    # within('tr', :text => 'Proposta 2') do |ref|
-    #   page.should have_selector('td', :text => l(proposal2.created_at))
-    # end
 
+    within('tbody tr:nth-child(1)') do
+      expect(page).to have_content proposal3.name
+    end
+
+    within('tbody tr:nth-child(2)') do
+      expect(page).to have_content proposal2.name
+    end
+
+    expect(page.find('tbody tr:nth-child(3)')).to have_content proposal1.name
   end
 end
