@@ -21,4 +21,11 @@ feature 'User View Contracts List' do
     expect(page).to have_content number_to_currency(contract.price)
     expect(page).to have_content number_to_currency(contract.discount)
   end
+
+  scenario 'view empty list' do
+    visit root_path
+    click_on 'Visualizar Contratos'
+
+    expect(page).to have_content 'Não existem contratos'
+  end
 end
