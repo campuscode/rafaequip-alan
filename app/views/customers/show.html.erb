@@ -19,6 +19,7 @@
     <dd><%= @customer.financial_contact %></dd>
   </dl>
   <div>
-    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>    
+    <%= link_to 'Voltar', customers_path , class: "btn btn-default" %>
+    <%= link_to 'Editar', edit_customer_path(@customer) , class: "btn btn-primary" %>  
   </div>
 </section>

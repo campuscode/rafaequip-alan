@@ -3,7 +3,10 @@ require 'rails_helper'
 feature 'User View Contracts List' do
   scenario 'successfully' do
     rental_period = create(:rental_period)
-    contract = create(:contract, rental_period: rental_period)
+    customer = create(:customer)
+    contract = create(:contract,
+                      rental_period: rental_period,
+                      customer: customer)
     visit root_path
     click_on 'Visualizar Contratos'
 

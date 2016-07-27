@@ -9,9 +9,7 @@ class ContractsController < ApplicationController
   end
 
   def new
-    @contract = Contract.new
-    @customers = Customer.all
-    @periods = RentalPeriod.all
+    set_collection
     @equipment = Equipment.where(available: true)
   end
 
@@ -48,5 +46,11 @@ class ContractsController < ApplicationController
 
   def set_contract
     @contract = Contract.find(params[:id])
+  end
+
+  def set_collection
+    @contract = Contract.new
+    @customers = Customer.all
+    @periods = RentalPeriod.all
   end
 end

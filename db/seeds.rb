@@ -46,3 +46,13 @@ Proposal.create(name: 'Alan',
                 mail: 'alan@campuscode.com.br',
                 phone: '11 2020-4321',
                 description: 'Quero 1 furadeiras e 1 parafusadeira')
+
+
+Customer.create(code: 10,
+                name: 'Tenda Construtora',
+                document: '65.345.654/0001-12',
+                billing_address: 'Alameda Santos, 1000',
+                billing_city: 'São Paulo',
+                billing_state: 'SP',
+                billing_zipcode: '04589-000',
+                financial_contact: 'Janderson Nunes Silva')

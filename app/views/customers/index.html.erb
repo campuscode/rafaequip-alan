@@ -1,0 +1,29 @@
+<section>
+  <h1>Lista de Clientes</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Razão Social</th>
+        <th>CPF/CNPJ</th>
+        <th>Endereço de cobrança</th>
+        <th>Contato financeiro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.code %></td>
+        <td><%= link_to customer.name, customer %></td>
+        <td><%= customer.document %></td>
+        <td>
+        <%= "#{customer.billing_address} -
+            #{customer.billing_city}/#{customer.billing_state}" %>
+        </td>
+        <td><%= customer.financial_contact %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<div><%= link_to 'Voltar', root_path , class: "btn btn-default" %></div>
