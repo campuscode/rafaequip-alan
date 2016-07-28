@@ -32,7 +32,7 @@ feature 'user view proposals' do
     proposal3 = create(:proposal,
                        name: 'Proposta 3',
                        created_at: created_at + 3)
-
+    login_user
     visit proposals_path
 
     within('tbody tr:nth-child(1)') do
