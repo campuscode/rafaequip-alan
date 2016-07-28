@@ -24,4 +24,22 @@ feature 'User create prices' do
 
     expect(page).to have_content 'Não foi possível criar um novo preço.'
   end
+
+  scenario 'Cannot overwrite the previous price' do
+    create(:price)
+
+    visit new_price_path
+
+    price2 = build(:price)
+    select price2.rental_period.description, from: 'Período'
+    select price2.equipment.description, from: 'Equipamento'
+    fill_in 'Preço', with: '2.0'
+
+    click_on 'Criar preço'
+
+    expect(page).not_to have_content 'R$ 1,50'
+    expect(page).to have_content price2.rental_period.description
+    expect(page).to have_content price2.equipment.description
+    expect(page).to have_content 'R$ 2,00'
+  end
 end
