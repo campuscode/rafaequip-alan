@@ -1,7 +1,6 @@
 class PricesController < ApplicationController
   def index
-    @prices = Price.all.group(:equipment_id,
-                              :rental_period_id).order(created_at: :desc)
+    @prices = Price.all.order(created_at: :desc)
   end
 
   def new
