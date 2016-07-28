@@ -7,7 +7,7 @@
                                    collection: @customers %>
     <%= f.input :shipping_contact, label: 'Contato de entrega' %>
     <%= f.input :shipping_address, label: 'Endereço de entrega' %>
-    <%= f.input :date_begin, label: 'Data de início', as: :date, html5: true %>
+    <%= f.input :date_begin, label: 'Data de início', as: :date %>
     <%= f.input :rental_period_id, label: 'Prazo de locação',
                                    collection: @periods, label_method: :description %>
     <%= f.association :equipment, collection: @equipment, label_method: :description, value_method: :id %>

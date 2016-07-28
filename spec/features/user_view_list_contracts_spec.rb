@@ -13,14 +13,11 @@ feature 'User View Contracts List' do
     click_on 'Visualizar Contratos'
 
     expect(page).to have_content contract.contract_number
-    expect(page).to have_content contract.order_number
     expect(page).to have_content contract.customer.name
     expect(page).to have_content contract.shipping_address
     expect(page).to have_content contract.shipping_contact
     expect(page).to have_content contract.rental_period.description
     expect(page).to have_content l(contract.date_begin)
-    expect(page).to have_content l(contract.date_end)
-    expect(page).to have_content number_to_currency(contract.price)
-    expect(page).to have_content number_to_currency(contract.discount)
+    expect(page).to have_content number_to_currency(contract.total_value)
   end
 end

@@ -13,9 +13,6 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "Orçamento", new_proposal_path %>
-          </li>
           <% if user_signed_in? %>
             <li>
               <%= link_to "Visualizar Orçamentos", proposals_path %>
@@ -55,6 +52,10 @@
             </li>
             <li>
               <%= link_to "Tabela de Preços", prices_path %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to "Orçamento", new_proposal_path %>
             </li>
           <% end %>
         </ul>

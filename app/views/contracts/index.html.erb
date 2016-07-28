@@ -4,15 +4,12 @@
     <thead>
       <tr>
         <th>Número Contrato</th>
-        <th>Número Pedido</th>
         <th>Cliente</th>
         <th>Endereço Entrega</th>
         <th>Contato Entrega</th>
-        <th>Período</th>
         <th>Data início</th>
-        <th>Data encerramento</th>
-        <th>Preço</th>
-        <th>Desconto</th>
+        <th>Período</th>
+        <th>Valor total</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -20,15 +17,12 @@
       <% @contracts.each do |contract| %>
       <tr>
         <td><%= contract.contract_number %></td>
-        <td><%= contract.order_number %></td>
         <td><%= contract.customer.name %></td>
         <td><%= contract.shipping_address %></td>
         <td><%= contract.shipping_contact %></td>
-        <td><%= contract.rental_period.description %></td>
         <td><%= l(contract.date_begin) %></td>
-        <td><%= l(contract.date_end) %></td>
-        <td><%= number_to_currency(contract.price) %></td>
-        <td><%= number_to_currency(contract.discount) %></td>
+        <td><%= contract.rental_period.description %></td>        
+        <td><%= number_to_currency(contract.total_value) %></td>
         <td><%= contract.status %></td>
         <td><%= link_to 'Detalhes', contract, class: "btn btn-default btn-sm" %></td>
       </tr>

@@ -17,8 +17,10 @@ feature 'user_create_contract' do
     fill_in 'Contato de entrega', with: 'Alan'
     select equipment.description, from: 'Equipment'
     select equipment1.description, from: 'Equipment'
-    select  period.description, from: 'Prazo de locação'
-    fill_in 'Data de início', with: '18/07/2016'
+    select period.description, from: 'Prazo de locação'
+    select '18', from: 'contract[date_begin(3i)]'
+    select 'Julho', from: 'contract[date_begin(2i)]'
+    select '2016', from: 'contract[date_begin(1i)]'
     fill_in 'Desconto', with: '10'
 
     click_on 'Emitir contrato'

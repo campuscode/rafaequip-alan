@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  authenticated :user do
+      root "contracts#index"
+  end
   root "home#index"
 
   authenticate :user do
