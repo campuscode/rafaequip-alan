@@ -6,6 +6,7 @@ feature 'User view equipment list' do
     equipment2 = create(:equipment, equipment_code: 'FRTMKT002',
                                     serial_number: '654321')
 
+    login_user
     visit root_path
     click_on 'Visualizar Equipamentos'
 

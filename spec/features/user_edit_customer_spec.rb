@@ -4,6 +4,7 @@ feature 'User edit customer' do
   scenario 'successfully' do
     customer = create(:customer, name: 'Camus Code')
 
+    login_user
     visit edit_customer_path(customer)
 
     customer_edit = build(:customer,
@@ -36,6 +37,7 @@ feature 'User edit customer' do
   scenario 'with invalid data' do
     customer = create(:customer, name: 'Campus Code')
 
+    login_user
     visit edit_customer_path(customer)
 
     fill_in 'Código do cliente',      with: ''

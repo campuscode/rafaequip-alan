@@ -4,6 +4,7 @@ feature 'User create equipment' do
   scenario 'sucessfulley' do
     equip = build(:equipment)
 
+    login_user
     visit new_equipment_path
 
     fill_in 'Código do equipamento', with: equip.equipment_code
@@ -24,6 +25,7 @@ feature 'User create equipment' do
   end
 
   scenario 'invalid' do
+    login_user
     visit new_equipment_path
 
     click_on 'Criar Equipamento'

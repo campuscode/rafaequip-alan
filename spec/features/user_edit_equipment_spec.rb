@@ -4,6 +4,7 @@ feature 'User edit equipment' do
   scenario 'successfully' do
     equip = create(:equipment)
 
+    login_user
     visit edit_equipment_path(equip)
 
     equip_edited = Equipment.create(equipment_code: 'BETONE001',
@@ -36,6 +37,7 @@ feature 'User edit equipment' do
   scenario 'with valid data' do
     equip = create(:equipment)
 
+    login_user
     visit edit_equipment_path(equip)
 
     fill_in 'Descrição',       with: ''
