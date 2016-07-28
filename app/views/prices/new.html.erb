@@ -1,0 +1,12 @@
+<section>
+    <h1>Novo Preço</h1>
+    <%= simple_form_for @price do |f| %>
+    <%= f.input :rental_period_id, label: 'Período',
+                                   collection: @periods,
+                                   label_method: :description %>
+    <%= f.input :equipment_id, label: 'Equipamento', collection: @equipment,
+                                                  label_method: :description %>
+    <%= f.input :amount, label: 'Preço' %>
+    <%= f.button :submit, 'Criar preço' %>
+    <% end %>
+</section>

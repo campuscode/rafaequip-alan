@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :proposals, only: [:index, :show, :new, :create]
   resources :equipment, only: [:index, :show, :new, :create, :edit, :update]
-  resources :prices, only: [:index]
+  resources :prices, only: [:index, :new, :create]
   resources :delivery_receipt, only: [:show]
   resources :customers, only: [:index, :show, :new, :create, :edit, :update]
 end
