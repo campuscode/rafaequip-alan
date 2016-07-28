@@ -6,6 +6,7 @@ feature 'User cannot see rented equipment' do
     equipment2 = create(:equipment, description: 'Furadeira')
     create(:contract, equipment: [equipment1])
 
+    login_user
     visit new_contract_path
 
     expect(page).not_to have_content(equipment1.description)
@@ -16,6 +17,7 @@ feature 'User cannot see rented equipment' do
     equipment = create(:equipment)
     contract = create(:contract, equipment: [equipment])
 
+    login_user
     visit contract_path(contract)
 
     click_on 'Encerrar contrato'

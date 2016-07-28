@@ -5,6 +5,7 @@ feature 'user view proposals' do
     proposal1 = create(:proposal)
     proposal2 = create(:proposal, name: 'Alan', mail: 'cc@cc.com')
 
+    login_user
     visit proposals_path
 
     expect(page).to have_content(proposal1.name)

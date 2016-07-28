@@ -8,6 +8,7 @@ feature 'User create a devolution receipt' do
                       equipment: equip_list,
                       rental_period: rental_period)
 
+    login_user
     visit contract_path(contract)
 
     click_on 'Gerar Recibo de Devolução'
@@ -39,6 +40,7 @@ feature 'User create a devolution receipt' do
 
     devolution_receipt = create(:devolution_receipt, contract: contract)
 
+    login_user
     visit contract_path(contract)
 
     click_on 'Vizualizar Recibo de Devolução'

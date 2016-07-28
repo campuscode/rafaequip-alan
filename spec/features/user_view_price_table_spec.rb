@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'User view price table' do
   scenario 'successfully' do
+    login_user
     visit root_path
 
     price = create(:price)

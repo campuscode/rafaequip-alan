@@ -20,5 +20,11 @@ feature 'User logout' do
 
     expect(page).to_not have_content("Olá, #{user.email}")
     expect(page).to have_content('Saiu com sucesso')
+
+    within('nav') do
+      expect(page).to_not have_content('Contratos')
+      expect(page).to_not have_content('Clientes')
+      expect(page).to_not have_content('Equipamentos')
+    end
   end
 end

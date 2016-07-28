@@ -4,6 +4,7 @@ feature 'User view close contract button' do
   scenario 'successfully' do
     create(:contract)
 
+    login_user
     visit contracts_path
     click_on 'Detalhes'
 

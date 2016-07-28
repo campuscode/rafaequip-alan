@@ -7,6 +7,8 @@ feature 'User View Contracts List' do
     contract = create(:contract,
                       rental_period: rental_period,
                       customer: customer)
+
+    login_user
     visit root_path
     click_on 'Visualizar Contratos'
 

@@ -6,6 +6,7 @@ feature 'user view equipment' do
     equipment1 = create(:equipment, equipment_code: '1234',
                                     available: true)
 
+    login_user
     visit equipment_index_path
 
     expect(page).to have_content(equipment.equipment_code)
@@ -15,6 +16,7 @@ feature 'user view equipment' do
   end
 
   scenario 'empty list' do
+    login_user
     visit equipment_index_path
 
     expect(page).to have_content('Nenhum equipamento cadastrado')

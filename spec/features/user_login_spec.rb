@@ -17,6 +17,12 @@ feature 'User login' do
     end
 
     expect(page).to have_content("Olá, #{user.email}")
+
+    within('nav') do
+      expect(page).to have_content('Contratos')
+      expect(page).to have_content('Clientes')
+      expect(page).to have_content('Equipamentos')
+    end
   end
 
   scenario 'but user does not exist' do

@@ -4,6 +4,7 @@ feature 'User generate delivery receipt' do
   scenario 'successfully' do
     contract = create(:contract)
 
+    login_user
     visit contract_path contract
 
     click_on 'Gerar Recibo de Entrega'
@@ -20,6 +21,7 @@ feature 'User generate delivery receipt' do
     contract = create(:contract)
     contract.create_delivery_receipt
 
+    login_user
     visit contract_path contract
 
     click_on 'Visualizar Recibo de Entrega'

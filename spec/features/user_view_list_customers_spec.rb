@@ -4,6 +4,7 @@ feature 'User view customers list' do
   scenario 'successfully' do
     customer = create(:customer)
 
+    login_user
     visit root_path
 
     click_on 'Visualizar Clientes'

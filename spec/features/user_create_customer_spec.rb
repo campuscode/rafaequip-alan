@@ -4,6 +4,7 @@ feature 'User create a customer' do
   scenario 'successfully' do
     customer = build(:customer)
 
+    login_user
     visit new_customer_path
 
     fill_in 'Código do cliente',      with: customer.code
@@ -28,6 +29,7 @@ feature 'User create a customer' do
   end
 
   scenario 'and should fill all fields' do
+    login_user
     visit new_customer_path
 
     click_on 'Criar Cliente'

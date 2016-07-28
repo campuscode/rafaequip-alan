@@ -7,6 +7,7 @@ feature 'user_create_contract' do
     equipment1  = create(:equipment, description: 'Furadeira')
     period      = create(:rental_period, description: '3 dias', period: 3)
 
+    login_user
     visit new_contract_path
 
     fill_in 'Número do contrato', with: '123'
@@ -37,6 +38,7 @@ feature 'user_create_contract' do
   end
 
   scenario 'with invalid data' do
+    login_user
     visit new_contract_path
 
     click_on 'Emitir contrato'
