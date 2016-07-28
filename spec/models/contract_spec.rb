@@ -74,6 +74,7 @@ describe Contract do
       expect(contract.total_value).to eq(70)
     end
   end
+
   describe '#equipment_unavailable' do
     it 'Equipment must be unavailable' do
       contract = create(:contract, equipment: create_list(:equipment, 2))
@@ -83,6 +84,7 @@ describe Contract do
       end
     end
   end
+
   describe '#equipment_available' do
     it 'Equipment must be available' do
       equip_list = create_list(:equipment, 2)

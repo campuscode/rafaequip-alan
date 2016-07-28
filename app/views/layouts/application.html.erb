@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <title>Rafaequip</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Rafaequip</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
+    <body>
 
-      <% if notice %>
-        <div class="alert alert-info" role="alert">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p><%= notice %></p>
+        <%= render 'layouts/header' %>
+
+        <div class="container">
+            <% if notice %>
+            <div class="alert alert-info" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p><%= notice %></p>
+            </div>
+            <% end %>
+
+            <% if alert %>
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p><%= alert %></p>
+            </div>
+            <% end %>
+
+            <%= yield %>
         </div>
-      <% end %>
-
-      <% if alert %>
-        <div class="alert alert-warning" role="alert">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p><%= alert %></p>
-        </div>
-      <% end %>
-
-      <%= yield %>
-    </div>
-  </body>
+    </body>
 </html>

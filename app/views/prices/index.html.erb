@@ -6,6 +6,7 @@
         <th>Equipamento</th>
         <th>Prazo</th>
         <th>Preço</th>
+        <th>Data de Criação</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
           <td><%= price.equipment.description %></td>
           <td><%= price.rental_period.description %></td>
           <td><%= number_to_currency(price.amount) %></td>
+          <td><%= l(price.created_at, format: :only_date) %></td>
         </tr>
         <% end %>
     </tbody>
