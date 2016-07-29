@@ -6,6 +6,16 @@ FactoryGirl.define do
     category 'Furadeira Martelete'
     price 585.80
     serial_number '123456'
-    available true
+    status 'available'
+
+    trait :unavailable do
+      description 'unavailable'
+      status 'unavailable'
+    end
+
+    trait :maintenance do
+      description 'maintenance'
+      status 'maintenance'
+    end
   end
 end

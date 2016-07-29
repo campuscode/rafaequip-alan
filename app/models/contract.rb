@@ -1,11 +1,17 @@
 class Contract < ApplicationRecord
-  validates :contract_number, :customer_id, :shipping_address,
-            :rental_period_id, :shipping_contact, :date_begin, :date_end,
+  validates :contract_number,
+            :customer_id,
+            :shipping_address,
+            :rental_period_id,
+            :shipping_contact,
+            :date_begin,
+            :date_end,
             :discount, presence: true
 
   before_validation :calc_date_end
-  before_save :calc_price, :set_initial_status
-  after_create :set_equipment_unavailable
+  before_save       :calc_price,
+                    :set_initial_status,
+                    :set_equipment_unavailable
 
   belongs_to :customer
   belongs_to :rental_period
@@ -43,14 +49,10 @@ class Contract < ApplicationRecord
   end
 
   def set_equipment_unavailable
-    equipment.each do |equip|
-      equip.update(available: false)
-    end
+    equipment.each(&:unavailable!)
   end
 
   def set_equipment_available
-    equipment.each do |equip|
-      equip.update(available: true)
-    end
+    equipment.each(&:available!)
   end
 end

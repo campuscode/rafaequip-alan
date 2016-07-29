@@ -5,7 +5,8 @@ describe Contract do
     it 'when 1 equipment' do
       equipment = create(:equipment)
       rental_period = create(:rental_period, description: '3 dias')
-      create(:price, equipment: equipment, rental_period: rental_period,
+      create(:price, equipment: equipment,
+                     rental_period: rental_period,
                      amount: 150.0)
 
       contract = create(:contract,
@@ -16,20 +17,22 @@ describe Contract do
     end
 
     it 'when 2 equipment' do
-      equip_list = create_list(:equipment, 2)
+      equipment1 =    create(:equipment)
+      equipment2 =    create(:equipment)
       rental_period = create(:rental_period, description: '3 dias')
 
       create(:price,
-             equipment: equip_list[0],
+             equipment: equipment1,
              rental_period: rental_period,
              amount: 150.0)
+
       create(:price,
-             equipment: equip_list[1],
+             equipment: equipment2,
              rental_period: rental_period,
              amount: 150.0)
 
       contract = create(:contract,
-                        equipment: equip_list,
+                        equipment: [equipment1, equipment2],
                         rental_period: rental_period)
 
       expect(contract.price).to eq(300.0)
@@ -63,34 +66,47 @@ describe Contract do
     it 'when contract is create' do
       equipment = create(:equipment)
       rental_period = create(:rental_period, description: '1 dia')
-      create(:price, equipment: equipment, rental_period: rental_period,
-                     amount: 100.0)
+      create(:price, equipment:     equipment,
+                     rental_period: rental_period,
+                     amount:        100.0)
 
       contract = create(:contract,
-                        equipment: [equipment],
-                        rental_period: rental_period,
-                        discount: 30)
+                        equipment:      [equipment],
+                        rental_period:  rental_period,
+                        discount:       30)
 
       expect(contract.total_value).to eq(70)
     end
   end
+
   describe '#equipment_unavailable' do
     it 'Equipment must be unavailable' do
-      contract = create(:contract, equipment: create_list(:equipment, 2))
+      available_equipment1 = create(:equipment)
+      available_equipment2 = create(:equipment)
+
+      contract = create(:contract,
+                        equipment: [available_equipment1,
+                                    available_equipment2])
 
       contract.equipment.each do |equip|
-        expect(equip).to_not be_available
+        expect(equip.status).to eq('unavailable')
       end
     end
   end
+
   describe '#equipment_available' do
-    it 'Equipment must be available' do
+    it 'Equipment should be available' do
       equip_list = create_list(:equipment, 2)
-      contract = create(:contract, equipment: equip_list)
+      contract =   create(:contract, equipment: equip_list)
+
+      contract.equipment.each do |equip|
+        expect(equip.status).to eq('unavailable')
+      end
+
       contract.close
 
       contract.equipment.each do |equip|
-        expect(equip).to be_available
+        expect(equip.status).to eq('available')
       end
     end
   end

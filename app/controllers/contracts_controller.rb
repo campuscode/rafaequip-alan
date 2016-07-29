@@ -10,7 +10,7 @@ class ContractsController < ApplicationController
 
   def new
     set_collection
-    @equipment = Equipment.where(available: true)
+    @equipment = Equipment.where(status: [:available])
   end
 
   def create
@@ -19,7 +19,7 @@ class ContractsController < ApplicationController
       redirect_to @contract
     else
       flash.now[:notice] = 'Não foi possível emitir contrato'
-      @equipment = Equipment.where(available: true)
+      @equipment = Equipment.where(status: [:available])
       render :new
     end
   end

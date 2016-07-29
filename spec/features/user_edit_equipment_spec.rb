@@ -8,19 +8,19 @@ feature 'User edit equipment' do
 
     equip_edited = Equipment.create(equipment_code: 'BETONE001',
                                     description:
-                                    'Betoneira 400 litros Elétrica',
-                                    supplier:      'Betoneira',
-                                    category:      'Betoneira Elétrica',
-                                    price:         1500.00,
-                                    serial_number: '555666',
-                                    available:     true)
+                                    'Betoneira 400  litros Elétrica',
+                                    supplier:       'Betoneira',
+                                    category:       'Betoneira Elétrica',
+                                    price:          1500.00,
+                                    serial_number:  '555666',
+                                    status:         'available')
 
     fill_in 'Código do equipamento', with: equip_edited.equipment_code
-    fill_in 'Descrição',          with: equip_edited.description
-    fill_in 'Fornecedor',         with: equip_edited.supplier
-    fill_in 'Categoria',          with: equip_edited.category
-    fill_in 'Preço',              with: equip_edited.price
-    fill_in 'Número de série',    with: equip_edited.serial_number
+    fill_in 'Descrição',             with: equip_edited.description
+    fill_in 'Fornecedor',            with: equip_edited.supplier
+    fill_in 'Categoria',             with: equip_edited.category
+    fill_in 'Preço',                 with: equip_edited.price
+    fill_in 'Número de série',       with: equip_edited.serial_number
 
     click_on 'Atualizar Equipamento'
 
@@ -30,7 +30,7 @@ feature 'User edit equipment' do
     expect(page).to have_content equip_edited.category
     expect(page).to have_content number_to_currency(equip_edited.price)
     expect(page).to have_content equip_edited.serial_number
-    expect(page).to have_content equip_edited.available
+    expect(page).to have_content equip_edited.status
   end
 
   scenario 'with valid data' do

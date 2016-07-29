@@ -9,16 +9,16 @@ feature 'user_create_contract' do
 
     visit new_contract_path
 
-    fill_in 'Número do contrato', with: '123'
-    fill_in 'Número do pedido', with: '123456'
-    select customer.name, from: 'Cliente'
-    fill_in 'Endereço de entrega', with: 'Alameda Santos, 1293'
-    fill_in 'Contato de entrega', with: 'Alan'
-    select equipment.description, from: 'Equipment'
-    select equipment1.description, from: 'Equipment'
-    select  period.description, from: 'Prazo de locação'
-    fill_in 'Data de início', with: '18/07/2016'
-    fill_in 'Desconto', with: '10'
+    fill_in 'Número do contrato',   with: '123'
+    fill_in 'Número do pedido',     with: '123456'
+    select  customer.name,          from: 'Cliente'
+    fill_in 'Endereço de entrega',  with: 'Alameda Santos, 1293'
+    fill_in 'Contato de entrega',   with: 'Alan'
+    select  equipment.description,  from: 'Equipment'
+    select  equipment1.description, from: 'Equipment'
+    select  period.description,     from: 'Prazo de locação'
+    fill_in 'Data de início',       with: '18/07/2016'
+    fill_in 'Desconto',             with: '10'
 
     click_on 'Emitir contrato'
 
@@ -41,5 +41,17 @@ feature 'user_create_contract' do
 
     click_on 'Emitir contrato'
     expect(page).to have_content('Não foi possível emitir contrato')
+  end
+
+  scenario 'list only equipment available' do
+    available_equipment =   create(:equipment)
+    unavailable_equipment = create(:equipment, :unavailable)
+    maintenance_equipment = create(:equipment, :maintenance)
+
+    visit new_contract_path
+
+    expect(page).to     have_content available_equipment.description
+    expect(page).not_to have_content unavailable_equipment.description
+    expect(page).not_to have_content maintenance_equipment.description
   end
 end
